@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/template/hillsTemplate.xhtml"
+                xmlns:p="http://primefaces.org/ui">
+         
+         <ui:define name="content">
+            <div id="title" style="text-align: center; padding-bottom: 20px;">
+                <h1>The Hills | Golf &amp; Country Club</h1>  
+                <h2>Gallery</h2>
+                <p:graphicImage value="/resources/images/home_hr.png"/>
+                <br />
+            </div>   
+                <p:imageSwitch effect="shuffle">
+                    <ui:repeat value="#{imagesView.imagesGallery}" var="image">
+                        <p:graphicImage width="1200" height="460" name="/images/#{image}" />
+                    </ui:repeat>
+                </p:imageSwitch>
+         </ui:define>
+ </ui:composition>
+

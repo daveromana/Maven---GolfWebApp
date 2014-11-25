@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library="css" name="default.css"/>
+        <h:outputStylesheet library="css" name="cssLayout.css"/>
+        <h:outputStylesheet library="css" name="style.css"/>
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+        
+        <div id="header">
+            <ui:insert name="header">
+                 <div id="navigation" style="padding-top: 100px;">
+                   <h:form> 
+                <p:growl id="nav"/>
+                <p:menubar>
+                    <p:menuitem value="Home" action="/faces/index.xhtml"></p:menuitem>
+                    <p:submenu label="Course" >
+                        <p:menuitem value="Book A Tee Time" url="/faces/course/book-a-tee-time.xhtml" />
+                        <p:separator />
+                        <p:menuitem value="Greens Fees" url="/faces/course/greens-fees.xhtml" />
+                        <p:separator />
+                        <p:menuitem value="Practice Facilities" url="/faces/course/practice-facilities.xhtml" />
+                        <p:separator />
+                        <p:menuitem value="Golf Course" url="/faces/course/course.xhtml" />  
+                        <p:separator />
+                        <p:menuitem value="Score Card" url="/faces/course/score-card.xhtml" />
+                        <p:separator />
+                        <p:menuitem value="Course Gallery" url="/faces/course/course-gallery.xhtml" />
+                    </p:submenu>
+                    <p:submenu label="Memberships" >
+                        <p:menuitem value="Memberships" url="/faces/membership/membership.xhtml" />                    
+                        <p:separator />
+                        <p:menuitem value="Membership Information" url="/faces/membership/membership-information.xhtml" />
+                        <p:separator />
+                    </p:submenu>
+                    <p:submenu label="Lessons" >
+                        <p:menuitem value="Book A Lesson" url="/faces/lessons/book-a-lesson.xhtml" />
+                        <p:separator />
+                        <p:menuitem value="Instructor Rates" url="/faces/lessons/instructors-rates.xhtml" />  
+                        <p:separator />
+                        <p:menuitem value="Junior Golf" url="/faces/lessons/junior-golf.xhtml" />  
+                        <p:separator />
+                    </p:submenu>
+                    <p:submenu label="Tournaments" >
+                        <p:menuitem value="Events" url="/faces/tournaments/tournaments.xhtml" />
+                        <p:separator />
+                        <p:menuitem value="Tournament Calendar" url="/faces/tournaments/events-calendar.xhtml" />  
+                        <p:separator />
+                        <p:menuitem value="Register" url="/faces/tournaments/register.xhtml" />   
+                        <p:separator />
+                    </p:submenu>
+                    <p:menuitem value="Contact" url="/faces/contact.xhtml" ></p:menuitem>
+                    <p:menuitem value="Admin Panel" url="/faces/admin-pages/admin-panel.xhtml" ></p:menuitem>
+                </p:menubar>
+            </h:form>    
+                      </div>
+            </ui:insert>
+        </div>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content">Content</ui:insert>
+        </div>
+
+        <div id="footer">
+            <ui:insert name="footer"></ui:insert>
+        </div>
+
+    </h:body>
+
+</html>

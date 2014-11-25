@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      template="/template/hillsTemplate.xhtml"
+      xmlns:p="http://primefaces.org/ui">
+
+     <ui:define name="content">
+            <div id="title" style="text-align: center;">
+                <h1>The Hills | Golf &amp; Country Club</h1>  
+                <p:graphicImage value="/resources/images/home_hr.png"/>
+                <br />
+            </div>    
+              
+                <h2 style="text-align: center;">Add New Record</h2>
+                <div class="inputForm" style="margin: 0 auto; width: 480px;">
+                <h:form>
+                <h:panelGrid columns="2" cellpadding="5">
+                <p:column>
+                    <p:outputLabel value="Golf Shop Id:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="gsID" value="#{golfShopBean.golfShopId}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Daily Total Greens Fees:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="greenSales" value="#{golfShopBean.greensSales}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Daily Total Cart Fees:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="cartSales" value="#{golfShopBean.cartSales}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Daily Total Apparel Fees:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="apparelSales" value="#{golfShopBean.apparelSales}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Daily Total Club Sales:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="clubSales" value="#{golfShopBean.clubSales}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Daily Total Ball Sales:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="ballSales" value="#{golfShopBean.ballSales}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Daily Total Hat Sales:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="hatSales" value="#{golfShopBean.hatSales}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Daily Total Accessores:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="accessores" value="#{golfShopBean.accessores}"/>
+                </p:column>   
+                <br />
+                <p:commandButton value="Add Record" actionListener="#{golfShopBean.addGolfShopData()}" />
+                </h:panelGrid>
+
+                </h:form>
+                </div>
+                
+         </ui:define>
+    
+    </ui:composition>
+

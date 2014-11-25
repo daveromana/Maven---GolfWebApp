@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/template/hillsTemplate.xhtml"
+                xmlns:p="http://primefaces.org/ui">
+         
+         <ui:define name="content">
+            <div id="title" style="text-align: center;">
+                <h1>The Hills | Golf &amp; Country Club</h1>  
+                <p:graphicImage value="/resources/images/home_hr.png"/>
+                <br />
+            </div>    
+            <div id="page-center">  
+                     <h:form id="form">          
+                    <p:growl id="msgs" showDetail="true" />
+                    <h3 style="margin-top:0; text-align: center;">Tournaments</h3>
+                    <p:accordionPanel>
+                        <p:tab title="Mens Day">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <h:outputText value="Date: Friday - June 5th, 2014" /><br />
+                                <h:outputText value="Spots Left: 100 Open Spots (Max 200)" /><br />
+                                <h:outputText value="Price: $45.00" />
+                            </h:panelGrid>
+                        </p:tab>
+                        <p:tab title="Ladies Day">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <h:outputText value="Date: Friday - June 5th, 2014" /><br />
+                                <h:outputText value="Spots Left: 100 Open Spots (Max 200)" /><br />
+                                <h:outputText value="Price: $45.00" />
+                            </h:panelGrid>
+                        </p:tab>
+                           <p:tab title="Member Guest">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <h:outputText value="Date: Friday - June 25th, 2014" /><br />
+                                <h:outputText value="Spots Left: 800 Open Spots (Max 200)" /><br />
+                                <h:outputText value="Price: $245.00" />
+                            </h:panelGrid>
+                        </p:tab>
+                           <p:tab title="4th of July Scramble">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <h:outputText value="Date: Friday - July 4th, 2014" /><br />
+                                <h:outputText value="Spots Left: 400 Open Spots (Max 200)" /><br />
+                                <h:outputText value="Price: $145.00" />
+                            </h:panelGrid>
+                        </p:tab>
+                           <p:tab title="Roger Moore Memorial">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <h:outputText value="Date: Friday - July 25th, 2014" /><br />
+                                <h:outputText value="Spots Left: 200 Open Spots (Max 200)" /><br />
+                                <h:outputText value="Price: $85.00" />
+                            </h:panelGrid>
+                        </p:tab>
+                           <p:tab title="Ryder Cup">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <h:outputText value="Date: Friday - Augugst 13th, 2014" /><br />
+                                <h:outputText value="Spots Left: 10 Open Spots (Max 200)" /><br />
+                                <h:outputText value="Price: $95.00" />
+                            </h:panelGrid>
+                        </p:tab>
+                           <p:tab title="Fall Shamble">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <h:outputText value="Date: Friday - August 31st, 2014" /><br />
+                                <h:outputText value="Spots Left: 150 Open Spots (Max 200)" /><br />
+                                <h:outputText value="Price: $55.00" />
+                            </h:panelGrid>
+                        </p:tab>
+                           <p:tab title="Hallow Bash Scramble">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <h:outputText value="Date: Friday - October 31st, 2014" /><br />
+                                <h:outputText value="Spots Left: 46 Open Spots (Max 200)" /><br />
+                                <h:outputText value="Price: $50.00" />
+                            </h:panelGrid>
+                        </p:tab>
+                           <p:tab title="Turkey Day Scramble">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <h:outputText value="Date: Friday - November 5th, 2014" /><br />
+                                <h:outputText value="Spots Left: 10 Open Spots (Max 200)" /><br />
+                                <h:outputText value="Price: $95.00" />
+                            </h:panelGrid>
+                        </p:tab>
+               
+                    </p:accordionPanel> 
+                   </h:form>
+            </div>    
+         </ui:define>
+ </ui:composition>
+
+

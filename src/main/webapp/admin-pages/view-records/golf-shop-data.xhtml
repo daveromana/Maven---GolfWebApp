@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui" >
+    <h:head>
+        <title>Administrator Golf Shop Data</title>
+        <h:outputStylesheet library="css" name="style.css"/>
+    </h:head>
+    <h:body>  
+        <!-- start of header -->
+        <ui:insert name="header" >
+            <ui:include src="/template/header.xhtml" />
+        </ui:insert> 
+        <!-- end of header -->
+        <!-- start of content -->
+        <div id="content">
+           
+            <div id="title" style="text-align: center; padding-top: 30px;">
+                <h1>The Hills | Golf &amp; Country Club</h1>  
+                <p:graphicImage value="/resources/images/home_hr.png"/>
+                <h2>Golf Shop Data</h2>
+                <br />
+            </div>    
+        <div id="adminMenu" style="width: 90%; margin: 0 auto; padding-bottom: 30px;">
+            <h:form> 
+             <p:growl id="recordActions"/>
+             <p:menubar>
+                <p:menuitem value="Add New Record" url="/faces/admin-pages/add-records/add-golf-shop-record.xhtml" icon="ui-icon-arrowreturnthick-1-e" />
+                <p:menuitem value="Edit Records" url="/faces/admin-pages/edit-records/edit-golf-shop-record.xhtml" icon="ui-icon-pencil" />
+                <p:menuitem value="Delete Records" url="/faces/admin-pages/delete-records/delete-golf-shop-record.xhtml" icon="ui-icon-close" />
+             </p:menubar>
+             </h:form>
+        </div>
+            
+            <h:dataTable class="golf-data-table" value="#{golfShopBean.golfShopData}" var="item">
+                <!-- represents a row with one column -->
+                <h:column>
+                    <p:dataTable var="item" value="#{golfShopBean.golfShopData}">
+                        <p:column headerText="Id">
+                            <h:outputText value="#{item.id}" />
+                        </p:column>
+
+                        <p:column headerText="Golf Shop Id">
+                            <h:outputText value="#{item.golfShopId}" />
+                        </p:column>
+
+                        <p:column headerText="Total Greens Fees">
+                            <h:outputText value="#{item.greensFees}" />
+                        </p:column>
+
+                        <p:column headerText="Total Cart Fees">
+                            <h:outputText value="#{item.cartFees}" />
+                        </p:column>
+                        
+                        <p:column headerText="Shop Sales">
+                            <h:outputText value="#{item.shopSales}" />
+                        </p:column>
+                        
+                        <p:column headerText="Member Charges">
+                            <h:outputText value="#{item.memberCharges}" />
+                        </p:column>
+
+                    </p:dataTable>
+                </h:column>
+                <br />
+                <br />
+                <br />
+            </h:dataTable>
+        </div>
+        
+        <!-- end of content -->  
+        <!-- start of footer -->
+        <div id="footer">
+            <ui:insert name="footer" >
+                <ui:include src="/template/footer.xhtml" />
+            </ui:insert>
+        </div>
+        <!-- end of footer -->
+        <br />
+        
+    </h:body>
+</html>
+
