@@ -52,7 +52,16 @@ public abstract class AbstractFacade<T> implements Serializable {
         q.setFirstResult(range[0]);
         return q.getResultList();
     }
+    
+    public List<T> findById(int id){
+         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
+         cq.select(cq.from(entityClass));
+         javax.persistence.Query q = getEntityManager().createQuery(cq);
+         q.getParameterValue(id);
+         return q.getResultList();
+    }
 
+    
     public int count() {
         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
         javax.persistence.criteria.Root<T> rt = cq.from(entityClass);

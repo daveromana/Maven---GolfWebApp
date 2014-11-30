@@ -21,55 +21,43 @@
                     <p:outputLabel value="Golf Shop Id:" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="gsID" value="#{golfShopBean.golfShopId}"/>
+                    *<p:inputText id="gsID" value="#{golfShopBean.golfShopId}"/>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="Daily Total Greens Fees:" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="greenSales" value="#{golfShopBean.greensSales}"/>
+                    $<p:inputText id="greenSales" value="#{golfShopBean.greensSales}"/>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="Daily Total Cart Fees:" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="cartSales" value="#{golfShopBean.cartSales}"/>
+                    $<p:inputText id="cartSales" value="#{golfShopBean.cartSales}"/>
                 </p:column>
                 <p:column>
-                    <p:outputLabel value="Daily Total Apparel Fees:" />
+                    <p:outputLabel value="Shop Sales:" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="apparelSales" value="#{golfShopBean.apparelSales}"/>
+                    $<p:inputText id="shopSales" value="#{golfShopBean.shopSales}"/>
                 </p:column>
                 <p:column>
-                    <p:outputLabel value="Daily Total Club Sales:" />
+                    <p:outputLabel value="Member Charges:" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="clubSales" value="#{golfShopBean.clubSales}"/>
+                    $<p:inputText id="membercharges" value="#{golfShopBean.memberCharges}"/>
                 </p:column>
-                <p:column>
-                    <p:outputLabel value="Daily Total Ball Sales:" />
-                </p:column>
-                <p:column>
-                    <p:inputText id="ballSales" value="#{golfShopBean.ballSales}"/>
-                </p:column>
-                <p:column>
-                    <p:outputLabel value="Daily Total Hat Sales:" />
-                </p:column>
-                <p:column>
-                    <p:inputText id="hatSales" value="#{golfShopBean.hatSales}"/>
-                </p:column>
-                <p:column>
-                    <p:outputLabel value="Daily Total Accessores:" />
-                </p:column>
-                <p:column>
-                    <p:inputText id="accessores" value="#{golfShopBean.accessores}"/>
-                </p:column>   
+     
                 <br />
-                <p:commandButton value="Add Record" actionListener="#{golfShopBean.addGolfShopData()}" />
+                <p:commandButton value="Add Record" action="#{golfShopBean.addGolfShopData()}" />
                 </h:panelGrid>
-
                 </h:form>
+                 <h:form> 
+                 <p:growl id="recordActions"/>
+                 <p:menubar>
+                   <p:menuitem class="adminMenu" value="Golf Shop Records" url="/faces/admin-pages/view-records/golf-shop-data.xhtml" />
+                 </p:menubar>
+                 </h:form>
                 </div>
                 
          </ui:define>

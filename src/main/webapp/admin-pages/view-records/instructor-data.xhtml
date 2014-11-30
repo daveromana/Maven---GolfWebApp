@@ -10,9 +10,7 @@
     </h:head>
      <h:body>  
         <!-- start of header -->
-        <ui:insert name="header" >
-            <ui:include src="/template/header.xhtml" />
-        </ui:insert> 
+   
         <!-- end of header -->
         <!-- start of content -->
         <div id="content">
@@ -31,6 +29,7 @@
                         <p:menuitem value="Add New Record" url="/faces/admin-pages/add-records/add-instructor.xhtml" icon="ui-icon-arrowreturnthick-1-e" />
                         <p:menuitem value="Edit Records" url="/faces/admin-pages/edit-records/edit-instructor.xhtml" icon="ui-icon-pencil" />
                         <p:menuitem value="Delete Records" url="/faces/admin-pages/delete-records/delete-instructor.xhtml" icon="ui-icon-close" />
+                        <p:menuitem value="Administrator Panel" url="/faces/admin-pages/admin-panel.xhtml" />
                     </p:menubar>
                 </h:form>
             </div>

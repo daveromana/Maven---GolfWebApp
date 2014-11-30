@@ -24,19 +24,21 @@ import javax.inject.Named;
 public class GolfShopBean implements Serializable {
     private List<GolfShop> golfShopData;
     private int golfShopId;
-    private int id;
+    private Integer id;
     private double greensSales;
     private double cartSales;
     private double shopSales;
     private double memberCharges;
+ 
     
-     @Inject
-    private GolfShopFacade golfshopService;
+    @Inject
+    private GolfShopFacade golfshopDAO;
     
 //    @PostConstruct
 //    public void initShopData() {
 //        golfShopData = golfshopService.findAll();
 //    }
+
 
     /**
      * This is an example of a JSF action command method. It is always
@@ -46,7 +48,7 @@ public class GolfShopBean implements Serializable {
      * @return 
      */
     public String processGetAllGolfShopData() {
-        golfShopData = golfshopService.findAll();
+        golfShopData = golfshopDAO.findAll();
         // preferred way to go to a page
         return "view-records/golf-shop-data";
         // Option to redirect to page
@@ -61,12 +63,40 @@ public class GolfShopBean implements Serializable {
         gs.setCartFees(new BigDecimal(cartSales));
         gs.setShopSales(new BigDecimal(shopSales));
         gs.setMemberCharges(new BigDecimal(memberCharges));
+        golfshopDAO.create(gs);
         golfShopData.add(gs);
-        return "view-records/golf-shop-data";
+        return null;
     }
     
-    public String deleteGolfShopRecord(GolfShop golfShop){
-        golfShopData.remove(golfShop);
+    public String deleteGolfShopRecord(int id){
+        GolfShop gs = golfshopDAO.find(id);
+        golfShopData.remove(gs);
+        golfshopDAO.remove(gs);
+        return null;
+    }
+        
+    public String findById(int id){
+        GolfShop gs = golfshopDAO.find(id);
+        gs.getId();
+        gs.getGolfShopId();
+        gs.getGreensFees();
+        gs.getCartFees();
+        gs.getShopSales();
+        gs.getMemberCharges();
+        golfshopDAO.edit(gs);
+        return null; 
+    }
+    
+    public String updateGolfShopData(){
+        GolfShop gs = new GolfShop();
+        gs.setId(id);
+        gs.setGolfShopId(new BigDecimal(golfShopId));
+        gs.setGreensFees(new BigDecimal(greensSales));
+        gs.setCartFees(new BigDecimal(cartSales));
+        gs.setShopSales(new BigDecimal(shopSales));
+        gs.setMemberCharges(new BigDecimal(memberCharges));
+        golfshopDAO.create(gs);
+        golfShopData.add(gs);
         return null;
     }
 
@@ -86,13 +116,23 @@ public class GolfShopBean implements Serializable {
         this.golfShopId = golfShopId;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
+
+    public GolfShopFacade getGolfshopDAO() {
+        return golfshopDAO;
+    }
+
+    public void setGolfshopDAO(GolfShopFacade golfshopDAO) {
+        this.golfshopDAO = golfshopDAO;
+    }
+    
+  
 
     public double getGreensSales() {
         return greensSales;
@@ -127,12 +167,13 @@ public class GolfShopBean implements Serializable {
     }
 
     public GolfShopFacade getGolfshopService() {
-        return golfshopService;
+        return golfshopDAO;
     }
 
     public void setGolfshopService(GolfShopFacade golfshopService) {
-        this.golfshopService = golfshopService;
+        this.golfshopDAO = golfshopService;
     }
 
+    
     
 }

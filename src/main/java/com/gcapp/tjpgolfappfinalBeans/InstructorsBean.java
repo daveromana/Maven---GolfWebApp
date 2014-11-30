@@ -11,6 +11,7 @@ import com.gcapp.tjpgolfappfinalService.InstructorsFacade;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -23,6 +24,7 @@ import javax.inject.Named;
 @SessionScoped
 public class InstructorsBean implements Serializable {
     private List<Instructors> instructors;
+    private Integer id;
     private int instructorId;
     private String name;
     private double rate;
@@ -32,6 +34,11 @@ public class InstructorsBean implements Serializable {
     @Inject
     private InstructorsFacade instructorsDAO;
 
+      @PostConstruct
+    public void initInstructorData() {
+        instructors = instructorsDAO.findAll();
+    }
+    
     /**
      * This is an example of a JSF action command method. It is always
      * public, usually has no parameters, and always return a String
@@ -49,19 +56,43 @@ public class InstructorsBean implements Serializable {
 
     public String addInstructor(){
        Instructors instructor = new Instructors();
+       instructor.setId(id);
        instructor.setInstructorId(instructorId);
        instructor.setName(name);
        instructor.setAvailability(availability);
        instructor.setTeaching(teaching);
        instructor.setRate(new BigDecimal(rate));
-
-       
+       instructorsDAO.create(instructor);
        instructors.add(instructor);
        return null;    
     }
     
-    public String deleteInstructor(Instructors instructor){
-        instructors.remove(instructor);
+    public String findInstructorById(int id){
+        Instructors is = instructorsDAO.find(id);
+        is.getId();
+        is.getInstructorId();
+        is.getName();
+        is.getTeaching();
+        is.getAvailability();
+        is.getRate();
+        return null;
+    }
+    
+    private String updateInstructor(){
+          Instructors is = new Instructors();
+          is.setId(instructorId);
+          is.setInstructorId(instructorId);
+          is.setName(name);
+          is.setTeaching(teaching);
+          is.setAvailability(availability);
+          is.setRate(new BigDecimal(rate));
+          return null;
+    }
+    
+    public String deleteInstructor(int id){
+        Instructors is = instructorsDAO.find(id);
+        instructors.remove(is);
+        instructorsDAO.remove(is);
         return null;
     }
 
@@ -71,6 +102,14 @@ public class InstructorsBean implements Serializable {
 
     public void setInstructors(List<Instructors> instructors) {
         this.instructors = instructors;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public int getInstructorId() {

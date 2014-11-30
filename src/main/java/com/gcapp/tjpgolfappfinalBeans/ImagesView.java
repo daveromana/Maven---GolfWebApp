@@ -20,6 +20,7 @@ public class ImagesView {
     
       private List<String> images;
       private List<String> imagesGallery;
+      private List<String> jrImagesGallery;
       
     @PostConstruct
     public void init() {
@@ -31,6 +32,10 @@ public class ImagesView {
         for (int i = 1; i <= 8; i++) {
             imagesGallery.add("banner_" + i + ".jpg");
         }
+        jrImagesGallery = new ArrayList<String>();
+        for (int i = 1; i <= 11; i++) {
+            jrImagesGallery.add("jrgolf" + i + ".jpg");
+        }
     }
  
     public List<String> getImages() {
@@ -40,6 +45,15 @@ public class ImagesView {
     public List<String> getImagesGallery() {
         return imagesGallery;
     }
+
+    public List<String> getJrImagesGallery() {
+        return jrImagesGallery;
+    }
+
+    public void setJrImagesGallery(List<String> jrImagesGallery) {
+        this.jrImagesGallery = jrImagesGallery;
+    }
+    
     
     
 }

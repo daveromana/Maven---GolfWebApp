@@ -62,16 +62,28 @@
                     <p:inputText id="zip" value="#{employeeBean.zip}"/>
                 </p:column>
                 <p:column>
-                    <p:outputLabel value="Phone:" />
+                    <p:outputLabel value="Date Hired:" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="phone" value="#{employeeBean.phone}"/>
+                    <p:inputText id="dateHire" value="#{employeeBean.dateHired}"/>
                 </p:column>    
+                     <p:column>
+                <p:outputLabel value="Social Security Number" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="ssn" value="#{employeeBean.socialSecurity}"/>
+                </p:column>        
                 </h:panelGrid>
                 <br />
-                <p:commandButton value="Add Record" actionListener="#{employeeBean.addEmployee(employee)}" />
+                <p:commandButton value="Add Record" actionListener="#{employeeBean.addEmployee()}" />
                     
                 </h:form>
+                     <h:form> 
+                 <p:growl id="recordActions"/>
+                 <p:menubar>
+                   <p:menuitem class="adminMenu" value="Employee Records" url="/faces/admin-pages/view-records/employee-data.xhtml" />
+                 </p:menubar>
+                 </h:form>
                 </div>
          </ui:define>
     

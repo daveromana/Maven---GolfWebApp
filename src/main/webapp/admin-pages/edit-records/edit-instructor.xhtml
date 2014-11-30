@@ -12,10 +12,56 @@
                 <p:graphicImage value="/resources/images/home_hr.png"/>
                 <br />
             </div>    
-              
+          <div class="inputForm" style="margin: 0 auto; width: 500px;">
+            <h:form>
+                <h:panelGrid columns="4" cellpadding="5">
+                    <h:outputLabel value="ID:" style="font-weight:bold" />
+                    <p:inputText id="employeeId" value="#{instructorsBean.instructorId}" />
+                    <p:commandButton value="Find Record" action="#{instructorsBean.findInstructorById()}" icon="ui-icon-check" />
+                </h:panelGrid>
+            </h:form>
+          </div>
+               <div class="inputForm" style="margin: 0 auto; width: 480px; padding-left: 400px">
                 <h2 style="text-align: center;">Edit Record</h2>
- 
-            
+                 <h:form>
+                <h:panelGrid columns="2" cellpadding="5">
+                <p:column>
+                    <p:outputLabel value="Instructor Id:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="instId" value="#{instructorsBean.instructorId}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Instructor Name:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="instName" value="#{instructorsBean.name}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Hourly Rate:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="rate" value="#{instructorsBean.rate}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Teachings:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="teaching" value="#{instructorsBean.teaching}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Availability:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="availability" value="#{instructorsBean.availability}"/>
+                </p:column>
+     
+                <br />
+                <p:commandButton value="Add Record" actionListener="#{golfShopBean.addGolfShopData()}" />
+                </h:panelGrid>
+
+                </h:form>
+            </div>
          </ui:define>
     
     </ui:composition>

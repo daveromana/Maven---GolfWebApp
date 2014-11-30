@@ -9,10 +9,32 @@
          <ui:define name="content">
             <div id="title" style="text-align: center;">
                 <h1>The Hills | Golf &amp; Country Club</h1>  
-                <p:graphicImage value="resources/images/home_hr.png"/>
+                <p:graphicImage value="/resources/images/home_hr.png"/>
+                <br />
+                 <p:graphicImage width="1200" value="/resources/images/banner_6.jpg"/>
                 <br />
             </div>    
-            <div id="page-layout">    
+            <div id="content"> 
+                  <h:form>
+                      <p:dataTable var="item" class="memberData-table" value="#{memberRatesBean.memberRates}">
+                        <p:column headerText="Membership Categories">
+                            <h:outputText value="#{item.categories}" />
+                        </p:column>
+
+                        <p:column headerText="Membership Rates">
+                            <h:outputText value="#{item.rates}" />
+                        </p:column>
+
+                        <p:column headerText="Monthly Fees">
+                            <h:outputText value="#{item.monthlyFees}" />
+                        </p:column>
+                        
+                        <p:column headerText="Other Charges">
+                            <h:outputText value="#{item.otherCharges}" />
+                        </p:column>
+
+                    </p:dataTable>
+                </h:form>
             </div>    
          </ui:define>
  </ui:composition>

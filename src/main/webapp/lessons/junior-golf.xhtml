@@ -9,12 +9,27 @@
          <ui:define name="content">
             <div id="title" style="text-align: center;">
                 <h1>The Hills | Golf &amp; Country Club</h1>  
-                <p:graphicImage value="resources/images/home_hr.png"/>
+                <p:graphicImage value="/resources/images/home_hr.png"/>
                 <br />
             </div>    
-            <div id="page-layout">    
-            </div>    
+          
+                <p:graphicImage width="1200" value="/resources/images/banner_2.jpg"/>
+                <br />
+                <h2>Junior Camps</h2>
+                <hr />
+                <h:outputText value="The Golf School at Anaheim Hills offers golf camps for children ages 7-15 with all ability levels welcome. Camps include 3 hours of golf instruction, rules and etiquette, and a snack each day! Clubs and balls are provided. Class sizes are limited so early registration is suggested. " />
+                <ul>
+                    <li>Putting</li>
+                    <li>Chipping</li>
+                    <li>Full Swing</li>
+                    <li>On-Course Lessons</li>
+                    <li>Tourney and BBQ</li>
+                </ul>
+                <p>&nbsp;</p>
+                <p:contentFlow value="#{imagesView.jrImagesGallery}" var="image">
+                    <p:graphicImage name="images/#{image}" styleClass="content" />
+                </p:contentFlow>
          </ui:define>
- </ui:composition>
+</ui:composition>
 
 

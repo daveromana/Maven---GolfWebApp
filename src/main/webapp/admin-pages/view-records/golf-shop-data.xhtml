@@ -10,9 +10,7 @@
     </h:head>
     <h:body>  
         <!-- start of header -->
-        <ui:insert name="header" >
-            <ui:include src="/template/header.xhtml" />
-        </ui:insert> 
+   
         <!-- end of header -->
         <!-- start of content -->
         <div id="content">
@@ -30,13 +28,11 @@
                 <p:menuitem value="Add New Record" url="/faces/admin-pages/add-records/add-golf-shop-record.xhtml" icon="ui-icon-arrowreturnthick-1-e" />
                 <p:menuitem value="Edit Records" url="/faces/admin-pages/edit-records/edit-golf-shop-record.xhtml" icon="ui-icon-pencil" />
                 <p:menuitem value="Delete Records" url="/faces/admin-pages/delete-records/delete-golf-shop-record.xhtml" icon="ui-icon-close" />
+                <p:menuitem value="Administrator Panel" url="/faces/admin-pages/admin-panel.xhtml" />
              </p:menubar>
              </h:form>
         </div>
-            
-            <h:dataTable class="golf-data-table" value="#{golfShopBean.golfShopData}" var="item">
-                <!-- represents a row with one column -->
-                <h:column>
+ 
                     <p:dataTable var="item" value="#{golfShopBean.golfShopData}">
                         <p:column headerText="Id">
                             <h:outputText value="#{item.id}" />
@@ -47,27 +43,22 @@
                         </p:column>
 
                         <p:column headerText="Total Greens Fees">
-                            <h:outputText value="#{item.greensFees}" />
+                            <h:outputText value="$#{item.greensFees}" />
                         </p:column>
 
                         <p:column headerText="Total Cart Fees">
-                            <h:outputText value="#{item.cartFees}" />
+                            <h:outputText value="$#{item.cartFees}" />
                         </p:column>
                         
                         <p:column headerText="Shop Sales">
-                            <h:outputText value="#{item.shopSales}" />
+                            <h:outputText value="$#{item.shopSales}" />
                         </p:column>
                         
                         <p:column headerText="Member Charges">
-                            <h:outputText value="#{item.memberCharges}" />
+                            <h:outputText value="$#{item.memberCharges}" />
                         </p:column>
 
                     </p:dataTable>
-                </h:column>
-                <br />
-                <br />
-                <br />
-            </h:dataTable>
         </div>
         
         <!-- end of content -->  

@@ -9,10 +9,7 @@
         <h:outputStylesheet library="css" name="style.css"/>
     </h:head>
         <h:body>  
-        <!-- start of header -->
-        <ui:insert name="header" >
-            <ui:include src="/template/header.xhtml" />
-        </ui:insert> 
+
         <!-- end of header -->
         <!-- start of content -->
         <div id="content">
@@ -31,6 +28,7 @@
                         <p:menuitem value="Add New Record" url="/faces/admin-pages/add-records/add-member.xhtml" icon="ui-icon-arrowreturnthick-1-e" />
                         <p:menuitem value="Edit Records" url="/faces/admin-pages/edit-records/edit-member.xhtml" icon="ui-icon-pencil" />
                         <p:menuitem value="Delete Records" url="/faces/admin-pages/delete-records/delete-member.xhtml" icon="ui-icon-close" />
+                        <p:menuitem value="Administrator Panel" url="/faces/admin-pages/admin-panel.xhtml" />
                      </p:menubar>
                      </h:form>
                 </div>
@@ -50,6 +48,18 @@
                         <p:column headerText="Last Name">
                             <h:outputText value="#{item.lastName}" />
                         </p:column>
+                         <p:column headerText="Address">
+                            <h:outputText value="#{item.address}" />
+                        </p:column>
+                        <p:column headerText="City">
+                            <h:outputText value="#{item.city}" />
+                        </p:column>
+                        <p:column headerText="State">
+                            <h:outputText value="#{item.state}" />
+                        </p:column>
+                        <p:column headerText="Zip">
+                            <h:outputText value="#{item.zip}" />
+                        </p:column>
                         
                         <p:column headerText="Membership Type">
                             <h:outputText value="#{item.membershipType}" />
@@ -58,6 +68,7 @@
                         <p:column headerText="Quarterly Minimum">
                             <h:outputText value="#{item.quarterlyMinimum}" />
                         </p:column>
+                       
 
                     </p:dataTable>
           

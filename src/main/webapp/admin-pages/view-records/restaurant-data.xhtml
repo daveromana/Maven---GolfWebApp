@@ -10,9 +10,7 @@
     </h:head>
     <h:body>  
         <!-- start of header -->
-        <ui:insert name="header" >
-            <ui:include src="/template/header.xhtml" />
-        </ui:insert> 
+
         <!-- end of header -->
         <!-- start of content -->
         <div id="content">
@@ -20,7 +18,7 @@
             <div id="title" style="text-align: center; padding-top: 30px;">
                 <h1>The Hills | Golf &amp; Country Club</h1>  
                 <p:graphicImage value="/resources/images/home_hr.png"/>
-                <h2>Golf Shop Data</h2>
+                <h2>Hills Data</h2>
                 <p:graphicImage value="resources/images/home_hr.png"/>
                 <br />
             </div>     
@@ -31,6 +29,7 @@
                 <p:menuitem value="Add New Record" url="/faces/admin-pages/add-records/add-restaurant.xhtml" icon="ui-icon-arrowreturnthick-1-e" />
                 <p:menuitem value="Edit Records" url="/faces/admin-pages/edit-records/edit-restaurant.xhtml" icon="ui-icon-pencil" />
                 <p:menuitem value="Delete Records" url="/faces/admin-pages/delete-records/delete-restaurant.xhtml" icon="ui-icon-close" />
+                <p:menuitem value="Administrator Panel" url="/faces/admin-pages/admin-panel.xhtml" />
              </p:menubar>
              </h:form>
         </div>
@@ -38,26 +37,16 @@
                         <p:column headerText="Id">
                             <h:outputText value="#{item.id}" />
                         </p:column>
-
-                        <p:column headerText="Member Id">
-                            <h:outputText value="#{item.memberId}" />
-                        </p:column>
-
                         <p:column headerText="Drink Charges">
                             <h:outputText value="#{item.drinkCharges}" />
                         </p:column>
-
                         <p:column headerText="Food Charges">
                             <h:outputText value="#{item.foodCharges}" />
-                        </p:column>
-                        
+                        </p:column>                    
                         <p:column headerText="Member Charged To">
                             <h:outputText value="#{item.memberId}" />
                         </p:column>
-                  
                     </p:dataTable>
-             
-              
         </div>
         <!-- end of content -->  
         <!-- start of footer -->

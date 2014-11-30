@@ -4,7 +4,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       template="/template/hillsTemplate.xhtml"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
      <ui:define name="content">
             <div id="title" style="text-align: center;">
@@ -15,7 +16,81 @@
               
                 <h2 style="text-align: center;">Add New Record</h2>
  
-            
+                <div class="inputForm" style="margin: 0 auto; width: 400px;">
+                <h:form>
+                <h:panelGrid columns="2" cellpadding="5">
+                 <p:column>
+                    <p:outputLabel value="Id:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="memberId" value="#{membersBean.id}"/>
+                </p:column>    
+                <p:column>
+                    <p:outputLabel value="Member Id:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="membId" value="#{membersBean.memberId}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="First Name:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="fname" value="#{membersBean.firstName}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Last Name:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="lname" value="#{membersBean.lastName}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Address:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="address" value="#{membersBean.address}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="City:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="city" value="#{membersBean.city}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="State:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="state" value="#{membersBean.state}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Zip:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="zip" value="#{membersBean.zip}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Membership Type:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="dateHire" value="#{membersBean.membershipType}"/>
+                </p:column>    
+                     <p:column>
+                <p:outputLabel value="Quarterly Minimum" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="ssn" value="#{membersBean.quarterlyMinimum}"/>
+                </p:column>        
+                </h:panelGrid>
+                <br />
+                <p:commandButton value="Add Record" action="#{membersBean.addMember()}" />
+                    
+                </h:form>
+                     <h:form> 
+                <p:growl id="recordActions"/>
+                <p:menubar>
+                    <p:menuitem value="Return To Records" url="/faces/admin-pages/view-records/members-data.xhtml"  />
+                </p:menubar>
+            </h:form>
+                </div>
          </ui:define>
     
     </ui:composition>

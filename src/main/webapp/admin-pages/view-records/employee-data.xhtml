@@ -10,9 +10,7 @@
     </h:head>
      <h:body>  
         <!-- start of header -->
-        <ui:insert name="header" >
-            <ui:include src="/template/header.xhtml" />
-        </ui:insert> 
+
         <!-- end of header -->
         <!-- start of content -->
         <div id="content">
@@ -31,11 +29,12 @@
                     <p:menuitem value="Add New Record" url="/faces/admin-pages/add-records/add-employee.xhtml" icon="ui-icon-arrowreturnthick-1-e" />
                     <p:menuitem value="Edit Records" url="/faces/admin-pages/edit-records/edit-employee.xhtml" icon="ui-icon-pencil" />
                     <p:menuitem value="Delete Records" url="/faces/admin-pages/delete-records/delete-employee.xhtml" icon="ui-icon-close" />
+                    <p:menuitem value="Administrator Panel" url="/faces/admin-pages/admin-panel.xhtml" />
                  </p:menubar>
                  </h:form>
             </div>
                 <!-- represents a row with one column -->
-               
+                 <h:form>
                     <p:dataTable var="item" class="employee-table" value="#{employeeBean.employees}">
                         <p:column headerText="Id">
                             <h:outputText value="#{item.id}" />
@@ -64,9 +63,8 @@
                          <p:column headerText="State">
                              <h:outputText value="#{item.state}" />
                         </p:column>
-                        
                     </p:dataTable>
-               
+                </h:form>
               
         </div>
         <!-- end of content -->  

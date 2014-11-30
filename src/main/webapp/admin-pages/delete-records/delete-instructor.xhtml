@@ -14,8 +14,21 @@
             </div>    
               
                 <h2 style="text-align: center;">Delete Record</h2>
- 
-            
+                 <div class="inputForm" style="margin: 0 auto; width: 500px;">
+            <h:form>
+                <h:panelGrid columns="4" cellpadding="5">
+                    <h:outputLabel value="ID:" style="font-weight:bold" />
+                    <p:inputText id="instructorID" value="#{instructorsBean.id}" />
+                    <p:commandButton value="Delete Record" action="#{instructorsBean.deleteInstructor(instructorsBean.id)}" icon="ui-icon-check" />
+                </h:panelGrid>
+            </h:form>
+                      <h:form> 
+                 <p:growl id="recordActions"/>
+                 <p:menubar>
+                   <p:menuitem class="adminMenu" value="Instructor Records" url="/faces/admin-pages/view-records/instructor-data.xhtml" />
+                 </p:menubar>
+                 </h:form>
+                 </div>
          </ui:define>
     
     </ui:composition>

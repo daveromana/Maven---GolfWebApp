@@ -14,9 +14,62 @@
             </div>    
               
                 <h2 style="text-align: center;">Add New Record</h2>
- 
-            
+                <div class="inputForm" style="margin: 0 auto; width: 480px;">
+                <h:form>
+                <h:panelGrid columns="2" cellpadding="5">
+                 <p:column>
+                    <p:outputLabel value="Id:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="Id" value="#{instructorsBean.id}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Instructor Id:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="instId" value="#{instructorsBean.instructorId}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Instructor Name:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="instName" value="#{instructorsBean.name}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Hourly Rate:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="rate" value="#{instructorsBean.rate}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Teachings:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="teaching" value="#{instructorsBean.teaching}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Availability:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="availability" value="#{instructorsBean.availability}"/>
+                </p:column>
+     
+                <br />
+                <p:commandButton value="Add Record" action="#{instructorsBean.addInstructor()}" />
+                </h:panelGrid>
+
+                </h:form>
+                     <h:form> 
+                 <p:growl id="recordActions"/>
+                 <p:menubar>
+                   <p:menuitem class="adminMenu" value="Instructor Records" url="/faces/admin-pages/view-records/instructor-data.xhtml" />
+                 </p:menubar>
+                 </h:form>
+                </div>
+                
          </ui:define>
     
     </ui:composition>
+
+
 

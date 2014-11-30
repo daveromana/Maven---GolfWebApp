@@ -14,7 +14,49 @@
             </div>    
               
                 <h2 style="text-align: center;">Edit Record</h2>
- 
+                <div class="inputForm" style="margin: 0 auto; width: 500px;">
+                    <h:form>
+                        <h:panelGrid columns="4" cellpadding="5">
+                            <h:outputLabel value="ID:" style="font-weight:bold" />
+                            <p:inputText id="employeeId" value="#{restuarantBean.restaurantId}" />
+                            <p:commandButton value="Delete Record" action="#{restuarantBean.deleteRestuarantData()}" icon="ui-icon-check" />
+                        </h:panelGrid>
+                    </h:form>
+                </div>
+                   <div class="inputForm" style="margin: 0 auto; width: 480px;">
+                <h:form>
+                <h:panelGrid columns="2" cellpadding="5">
+                <p:column>
+                    <p:outputLabel value="Restaurant Id:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="instId" value="#{restuarantBean.restaurantId}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Drink Charges:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="rate" value="#{restuarantBean.drinkCharges}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Food Charges" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="teaching" value="#{restuarantBean.foodCharges}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Member Charged To" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="availability" value="#{restuarantBean.memberId}"/>
+                </p:column>
+     
+                <br />
+                <p:commandButton value="Add Record" actionListener="#{golfShopBean.addGolfShopData()}" />
+                </h:panelGrid>
+
+                </h:form>
+                </div>
             
          </ui:define>
     

@@ -33,7 +33,7 @@ public class EmployeeBean implements Serializable {
     private String socialSecurity;
     private String dateHired;     
     
-        @Inject
+    @Inject
     private EmployeesFacade employeeDAO;
 
     /**
@@ -42,41 +42,69 @@ public class EmployeeBean implements Serializable {
      * indicating the page name that you will return to. If you want
      * to return to the same page, return null.
      * @return 
-     */  public String processGetAllEmployees() {
+     */
+    public String processGetAllEmployees() {
         employees = employeeDAO.findAll();
         // preferred way to go to a page
-        
         return "view-records/employee-data";
         // Option to redirect to page
-//        return "admin-pages/golf-shop-data?faces-redirect=true";
+        // Return "admin-pages/golf-shop-data?faces-redirect=true";
     }
-  
 
-       
-    public String addEmployee(Employees employee){
-        employee = new Employees();
-        employee.setId(id);
-        employee.setEmployeeId(employeeId);
-        employee.setFirstName(firstName);
-        employee.setLastName(lastName);
-        employee.setAddress(address);
-        employee.setCity(city);
-        employee.setState(state);
-        employee.setSocailSecurity(socialSecurity);
-        employee.setDateHired(dateHired);
-        employeeDAO.create(employee);
-        return "view-records/employee-data";
+    public String addEmployee(){
+        Employees newEmployees = new Employees();
+        newEmployees.setId(id);
+        newEmployees.setEmployeeId(employeeId);
+        newEmployees.setFirstName(firstName);
+        newEmployees.setLastName(lastName);
+        newEmployees.setAddress(address);
+        newEmployees.setCity(city);
+        newEmployees.setState(state);
+        newEmployees.setSocailSecurity(socialSecurity);
+        newEmployees.setDateHired(dateHired);
+        employeeDAO.create(newEmployees);
+        employees.add(newEmployees);
+        return null;
+    }
+    
+    public String deleteEmployee(int id){
+        Employees emp = employeeDAO.find(id);
+        employees.remove(emp);
+        employeeDAO.remove(emp);
+        return null;
     }
     
     public String updateEmployee(){
-       return "view-records/employee-data";
+        Employees newEmployees = new Employees();
+        newEmployees.setId(id);
+        newEmployees.setEmployeeId(employeeId);
+        newEmployees.setFirstName(firstName);
+        newEmployees.setLastName(lastName);
+        newEmployees.setAddress(address);
+        newEmployees.setCity(city);
+        newEmployees.setState(state);
+        newEmployees.setSocailSecurity(socialSecurity);
+        newEmployees.setDateHired(dateHired);
+        employeeDAO.create(newEmployees);
+        employees.add(newEmployees);
+       return null;
     }
     
-    
-    public String deleteEmployee(){
-        return "view-records/employee-data";
+    public String findEmployee(int id){
+        Employees updateEmployee = employeeDAO.find(id);
+        updateEmployee.getId();
+        updateEmployee.getEmployeeId();
+        updateEmployee.getFirstName();
+        updateEmployee.getLastName();
+        updateEmployee.getAddress();
+        updateEmployee.getCity();
+        updateEmployee.getState();
+        updateEmployee.getSocailSecurity();
+        updateEmployee.getDateHired();
+        employeeDAO.edit(updateEmployee);
+        return null;
     }
-
+    
     public List<Employees> getEmployees() {
         return employees;
     }

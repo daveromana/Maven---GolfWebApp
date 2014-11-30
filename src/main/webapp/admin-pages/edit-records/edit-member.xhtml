@@ -6,16 +6,85 @@
       template="/template/hillsTemplate.xhtml"
       xmlns:p="http://primefaces.org/ui">
 
-     <ui:define name="content">
-            <div id="title" style="text-align: center;">
-                <h1>The Hills | Golf &amp; Country Club</h1>  
-                <p:graphicImage value="/resources/images/home_hr.png"/>
+    <ui:define name="content">
+        <div id="title" style="text-align: center;">
+            <h1>The Hills | Golf &amp; Country Club</h1>  
+            <p:graphicImage value="/resources/images/home_hr.png"/>
+            <br />
+        </div>    
+
+        <h2 style="text-align: center;">Edit Record</h2>
+        <div class="inputForm" style="margin: 0 auto; width: 500px;">
+            <h:form>
+                <h:panelGrid columns="4" cellpadding="5">
+                    <h:outputLabel value="ID:" style="font-weight:bold" />
+                    <p:inputText id="employeeId" value="#{membersBean.memberId}" />
+                    <p:commandButton value="Find Record To Edit" action="#{membersBean}" icon="ui-icon-check" />
+                </h:panelGrid>
+            </h:form>
+       
+                <h:form>
+                <h:panelGrid columns="2" cellpadding="5">
+                <p:column>
+                    <p:outputLabel value="Member Id:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="empId" value="#{membersBean.memberId}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="First Name:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="fname" value="#{membersBean.firstName}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Last Name:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="lname" value="#{membersBean.lastName}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Address:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="address" value="#{membersBean.address}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="City:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="city" value="#{membersBean.city}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="State:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="state" value="#{membersBean.state}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Zip:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="zip" value="#{membersBean.zip}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="Membership Type:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="membershipType" value="#{membersBean.membershipType}"/>
+                </p:column>    
+                     <p:column>
+                <p:outputLabel value="Quarterly Minimum" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="quartMin" value="#{membersBean.quarterlyMinimum}"/>
+                </p:column>        
+                </h:panelGrid>
                 <br />
-            </div>    
-              
-                <h2 style="text-align: center;">Edit Record</h2>
- 
-            
+                <p:commandButton value="Add Record" actionListener="#{membersBean.updateMember()}" />
+                    
+                </h:form>
+               </div>
          </ui:define>
     
     </ui:composition>

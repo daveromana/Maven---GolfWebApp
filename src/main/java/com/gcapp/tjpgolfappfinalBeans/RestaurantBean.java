@@ -23,6 +23,7 @@ import javax.inject.Named;
 public class RestaurantBean implements Serializable {
     
     private List<Restaurant> restaurant;
+    private Integer id;
     private BigDecimal drinkCharges;
     private BigDecimal foodCharges;
     private Integer memberId;
@@ -48,15 +49,37 @@ public class RestaurantBean implements Serializable {
     
     public String addRestaurantData(){
         Restaurant rs = new Restaurant();
+        rs.setId(id);
         rs.setMemberId(memberId);
         rs.setDrinkCharges(drinkCharges);
-        rs.setFoodCharges(foodCharges);
+        rs.setFoodCharges(foodCharges);        
+        restaurantDAO.create(rs);
         restaurant.add(rs);
         return null;
     }
     
-    public String deleteRestuarantData(Restaurant restuarant){
-        restaurant.remove(restuarant);
+    public String findRestuarantData(int id){
+        Restaurant rs = restaurantDAO.find(id);
+        rs.getId();
+        rs.getMemberId();
+        rs.getFoodCharges();
+        rs.getDrinkCharges();
+        return null;
+    }
+    
+    public String updateRestuarantData(){
+        Restaurant rs = new Restaurant();
+        rs.setId(id);
+        rs.setFoodCharges(foodCharges);
+        rs.setDrinkCharges(drinkCharges);
+        rs.setMemberId(memberId);
+        return null;
+    }
+    
+    public String deleteRestuarantData(int id){
+        Restaurant rs = restaurantDAO.find(id);
+        restaurant.remove(rs);
+        restaurantDAO.remove(rs);
         return null;
     }
 
@@ -66,6 +89,14 @@ public class RestaurantBean implements Serializable {
 
     public void setRestaurant(List<Restaurant> restaurant) {
         this.restaurant = restaurant;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public BigDecimal getDrinkCharges() {

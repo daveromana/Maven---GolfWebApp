@@ -18,7 +18,7 @@
                 <h:panelGrid columns="4" cellpadding="5">
                     <h:outputLabel value="ID:" style="font-weight:bold" />
                     <p:inputText id="employeeId" value="#{employeeBean.id}" />
-                    <p:commandButton value="Submit" icon="ui-icon-check" />
+                    <p:commandButton value="Find Employee By Id" icon="ui-icon-check" />
                 </h:panelGrid>
             </h:form>
                       <div id="space" style="padding-bottom: 50px; "></div>
@@ -61,14 +61,20 @@
                     <p:inputText id="zip" value="#{employeeBean.zip}"/>
                 </p:column>
                 <p:column>
-                    <p:outputLabel value="Phone:" />
+                    <p:outputLabel value="Date Hired:" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="phone" value="#{employeeBean.phone}"/>
-                </p:column>    
+                    <p:inputText id="datehired" value="#{employeeBean.dateHired}"/>
+                </p:column>   
+                 <p:column>
+                    <p:outputLabel value="Social Security Number:" />
+                </p:column>
+                <p:column>
+                    <p:inputText id="ssn" value="#{employeeBean.socialSecurity}"/>
+                </p:column>      
                 </h:panelGrid>
                 <br />
-                <p:commandButton value="Update Record" actionListener="#{employeeBean.addEmployee(employee)}" />
+                <p:commandButton value="Update Record" actionListener="#{employeeBean.updateEmployee()}" />
                     
                 </h:form>
                   </div>

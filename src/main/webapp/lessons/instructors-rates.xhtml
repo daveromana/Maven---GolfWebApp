@@ -9,11 +9,32 @@
          <ui:define name="content">
             <div id="title" style="text-align: center;">
                 <h1>The Hills | Golf &amp; Country Club</h1>  
-                <p:graphicImage value="resources/images/home_hr.png"/>
+                <p:graphicImage value="/resources/images/home_hr.png"/>
                 <br />
+                  <p:graphicImage width="1200" value="/resources/images/banner_3.jpg"/>
             </div>    
-            <div id="page-layout">    
-            </div>    
+              <div id="content"> 
+                  <h:form>
+                      <p:dataTable var="item" class="instructorData-table" value="#{instructorsBean.instructors}">
+                        <p:column headerText="Instructor Name">
+                            <h:outputText value="#{item.name}" />
+                        </p:column>
+
+                        <p:column headerText="Rate">
+                            <h:outputText value="$#{item.rate}" />
+                        </p:column>
+
+                        <p:column headerText="Teaching Category">
+                            <h:outputText value="#{item.teaching}" />
+                        </p:column>
+                        
+                        <p:column headerText="Availability">
+                            <h:outputText value="#{item.availability}" />
+                        </p:column>
+
+                    </p:dataTable>
+                </h:form>
+            </div>      
          </ui:define>
  </ui:composition>
 
