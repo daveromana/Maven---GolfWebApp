@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/template/hillsTemplate.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <div id="banner-contact" style="width: 900px;">
+            <p:graphicImage width="1200" value="/resources/images/banner_1.jpg"/>
+        </div>
+        <div id="title" style="text-align: center;">
+            <h1>Login</h1>  
+            <p:graphicImage value="/resources/images/home_hr.png"/>
+            <br />
+        </div>
+        <div id="center">
+                  <h:form id="loginForm" prependId="false" >
+                        <p:growl id="growl" sticky="false" life="3000" showDetail="false" />
+                        <p:focus for="j_username"/>
+                        <p:panelGrid columns="1">
+                            <p:watermark for="j_username" value="username@hills.com"/>                            
+                            <p:panelGrid columns="3">
+                                <h:outputLabel value="Email" for="j_username" />
+                                <p:inputText id="j_username" value="#{loginBean.userName}" 
+                                             required="true" label="Email" requiredMessage="Email is required"
+                                             validatorMessage="Please use a valid email address">
+                                    <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+                                </p:inputText>
+                                <p:message for="j_username"/>
+                                <h:outputLabel value="Password" for="j_password"/>
+                                <p:password id="j_password" value="#{loginBean.password}" feedback="false"
+                                            required="true" label="Password" requiredMessage="Password is required"
+                                            validatorMessage="Password must be at least 7 characters" />
+                                <p:message for="j_password"/>                                
+                                <h:outputText value=""/>
+                                <p:commandButton action="#{loginBean.doLogin()}" value="Login" ajax="false"/>
+                            </p:panelGrid>
+                        </p:panelGrid>
+                    </h:form>    
+          </div>
+    </ui:define>
+</ui:composition>
+
