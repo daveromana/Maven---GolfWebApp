@@ -15,16 +15,20 @@ public class ShaHashGeneratorApp {
      * @param args the command line arguments - not used.
      */
     public static void main(String[] args) {
-        String salt = "bob@isp.com"; // username field in db
-        String password = "password1"; // password field in db
+        String salt = "jim@hills.com"; // username field in db
+        String password = "Jim"; // password field in db
         System.out.println(password + ": " + sha512(password,salt));
         
-        salt = "sally@isp.com"; // username field in db
-        password = "password2"; // password field in db
+        salt = "travis@hills.com"; // username field in db
+        password = "Travis"; // password field in db
         System.out.println(password + ": " + sha512(password,salt));
         
-        salt = "tom@isp.com"; // username field in db
-        password = "password3"; // password field in db
+        salt = "admin@hills.com"; // username field in db
+        password = "Admin"; // password field in db
+        System.out.println(password + ": " + sha512(password,salt));
+        
+        salt = "henry@hills.com"; // username field in db
+        password = "Henry"; // password field in db
         System.out.println(password + ": " + sha512(password,salt));
     }
 
