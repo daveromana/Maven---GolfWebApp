@@ -6,7 +6,6 @@
       template="/template/hillsTemplate.xhtml"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-
      <ui:define name="content">
             <div id="title" style="text-align: center;">
                 <h1>The Hills | Golf &amp; Country Club</h1>  
@@ -23,59 +22,59 @@
                     <p:outputLabel value="Employee Id:" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="empId" value="#{employeeBean.employeeId}"/>
+                    <p:inputText id="empId" maxlength="10" value="#{employeeBean.employeeId}"/>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="First Name:" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="fname" value="#{employeeBean.firstName}"/>
+                    <p:inputText id="fname" maxlength="15" value="#{employeeBean.firstName}"/>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="Last Name:" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="lname" value="#{employeeBean.lastName}"/>
+                    <p:inputText id="lname" maxlength="25" value="#{employeeBean.lastName}"/>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="Address:" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="address" value="#{employeeBean.address}"/>
+                    <p:inputText id="address" maxlength="45" value="#{employeeBean.address}"/>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="City:" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="city" value="#{employeeBean.city}"/>
+                    <p:inputText id="city" maxlength="15" value="#{employeeBean.city}"/>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="State:" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="state" value="#{employeeBean.state}"/>
+                    <p:inputText id="state" maxlength="2" value="#{employeeBean.state}"/>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="Zip:" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="zip" value="#{employeeBean.zip}"/>
+                    <p:inputText id="zip" maxlength="5" value="#{employeeBean.zip}"/>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="Date Hired:" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="dateHire" value="#{employeeBean.dateHired}"/>
+                    <p:inputText id="dateHired" maxlength="10" value="#{employeeBean.dateHired}"/>
                 </p:column>    
                      <p:column>
                 <p:outputLabel value="Social Security Number" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="ssn" value="#{employeeBean.socialSecurity}"/>
+                    <p:inputText id="ssn" maxlength="11" value="#{employeeBean.socialSecurity}"/>
                 </p:column>        
                 </h:panelGrid>
                 <br />
-                <p:commandButton value="Add Record" actionListener="#{employeeBean.addEmployee()}" />
+                <p:commandButton value="Add Record" actionListener="#{employeeBean.addEmployee()}" id="addEmployee" />
                     
                 </h:form>
                      <h:form> 

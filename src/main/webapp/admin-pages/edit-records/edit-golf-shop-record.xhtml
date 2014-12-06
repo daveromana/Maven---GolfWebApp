@@ -17,44 +17,53 @@
             <div class="inputForm" style="margin: 0 auto; width: 480px; padding-left: 400px">
              
                 <h:form>
-                    <h:panelGrid columns="2" cellpadding="9">
+                    <h:panelGrid columns="4" cellpadding="5">
+                        <h:outputLabel value="ID:" style="font-weight:bold" />
+                        <p:inputText id="golfshopID" maxlength="3" value="#{golfShopBean.id}" />
                         <p:commandButton value="Find By Id" action="#{golfShopBean.findById(golfShopBean.id)}" icon="ui-icon-check" />
-                        <p:inputText id="golfshopID" value="#{golfShopBean.id}" />
+                    </h:panelGrid>    
+                    <h:panelGrid columns="2" cellpadding="5">
                             <p:column>
                                 <p:outputLabel value="Golf Shop Id:" />
                             </p:column>
                             <p:column>
-                                <p:inputText id="gsID" value="#{golfShopBean.golfShopId}"/>
+                                <p:inputText id="gsID" maxlength="5" value="#{golfShopBean.golfShopId}"/>
                             </p:column>
                             <p:column>
                                 <p:outputLabel value="Daily Total Greens Fees:" />
                             </p:column>
                             <p:column>
-                                <p:inputText id="greenSales" value="#{golfShopBean.greensSales}"/>
+                                <p:inputText id="greenSales" maxlength="8" value="#{golfShopBean.greensSales}"/>
                             </p:column>
                             <p:column>
                                 <p:outputLabel value="Daily Total Cart Fees:" />
                             </p:column>
                             <p:column>
-                                <p:inputText id="cartSales" value="#{golfShopBean.cartSales}"/>
+                                <p:inputText id="cartSales" maxlength="8" value="#{golfShopBean.cartSales}"/>
                             </p:column>
                             <p:column>
                                 <p:outputLabel value="Daily Shop Sales:" />
                             </p:column>
                             <p:column>
-                                <p:inputText id="accessoresSales" value="#{golfShopBean.shopSales}"/>
+                                <p:inputText id="accessoresSales" maxlength="8" value="#{golfShopBean.shopSales}"/>
                             </p:column>  
                             <p:column>
                                 <p:outputLabel value="Member Charges:" />
                             </p:column>
                             <p:column>
-                                <p:inputText id="memberCharges" value="#{golfShopBean.memberCharges}"/>
+                                <p:inputText id="memberCharges" maxlength="8" value="#{golfShopBean.memberCharges}"/>
                             </p:column> 
                             <br />
-                            <p:commandButton value="Update Record" action="#{golfShopBean.updateGolfShopData()}" />
+                            <p:commandButton value="Update Record" action="#{golfShopBean.updateGolfShopData(golfShopBean.id)}" id="updateGolfShop" />
                         </h:panelGrid>
                 
                 </h:form>
+                 <h:form> 
+                <p:growl id="recordActions"/>
+                <p:menubar>
+                    <p:menuitem class="adminMenu" value="Golf Shop Records" url="/faces/admin-pages/view-records/golf-shop-data.xhtml" />
+                </p:menubar>
+            </h:form>
             </div>
 
         </div>    

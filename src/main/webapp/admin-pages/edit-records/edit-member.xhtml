@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      template="/template/hillsTemplate.xhtml"
-      xmlns:p="http://primefaces.org/ui">
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/template/hillsTemplate.xhtml"
+                xmlns:p="http://primefaces.org/ui">
 
     <ui:define name="content">
         <div id="title" style="text-align: center;">
@@ -18,74 +18,77 @@
             <h:form>
                 <h:panelGrid columns="4" cellpadding="5">
                     <h:outputLabel value="ID:" style="font-weight:bold" />
-                    <p:inputText id="employeeId" value="#{membersBean.memberId}" />
-                    <p:commandButton value="Find Record To Edit" action="#{membersBean}" icon="ui-icon-check" />
+                    <p:inputText id="employeeId" value="#{membersBean.id}" />
+                    <p:commandButton value="Find Record To Edit" action="#{membersBean.findMember(membersBean.id)}" icon="ui-icon-check" />
                 </h:panelGrid>
-            </h:form>
-       
-                <h:form>
                 <h:panelGrid columns="2" cellpadding="5">
-                <p:column>
-                    <p:outputLabel value="Member Id:" />
-                </p:column>
-                <p:column>
-                    <p:inputText id="empId" value="#{membersBean.memberId}"/>
-                </p:column>
-                <p:column>
-                    <p:outputLabel value="First Name:" />
-                </p:column>
-                <p:column>
-                    <p:inputText id="fname" value="#{membersBean.firstName}"/>
-                </p:column>
-                <p:column>
-                    <p:outputLabel value="Last Name:" />
-                </p:column>
-                <p:column>
-                    <p:inputText id="lname" value="#{membersBean.lastName}"/>
-                </p:column>
-                <p:column>
-                    <p:outputLabel value="Address:" />
-                </p:column>
-                <p:column>
-                    <p:inputText id="address" value="#{membersBean.address}"/>
-                </p:column>
-                <p:column>
-                    <p:outputLabel value="City:" />
-                </p:column>
-                <p:column>
-                    <p:inputText id="city" value="#{membersBean.city}"/>
-                </p:column>
-                <p:column>
-                    <p:outputLabel value="State:" />
-                </p:column>
-                <p:column>
-                    <p:inputText id="state" value="#{membersBean.state}"/>
-                </p:column>
-                <p:column>
-                    <p:outputLabel value="Zip:" />
-                </p:column>
-                <p:column>
-                    <p:inputText id="zip" value="#{membersBean.zip}"/>
-                </p:column>
-                <p:column>
-                    <p:outputLabel value="Membership Type:" />
-                </p:column>
-                <p:column>
-                    <p:inputText id="membershipType" value="#{membersBean.membershipType}"/>
-                </p:column>    
-                     <p:column>
-                <p:outputLabel value="Quarterly Minimum" />
-                </p:column>
-                <p:column>
-                    <p:inputText id="quartMin" value="#{membersBean.quarterlyMinimum}"/>
-                </p:column>        
+                    <p:column>
+                        <p:outputLabel value="Member Id:" />
+                    </p:column>
+                    <p:column>
+                        <p:inputText id="memId" maxlength="8" value="#{membersBean.memberId}"/>
+                    </p:column>
+                    <p:column>
+                        <p:outputLabel value="First Name:" />
+                    </p:column>
+                    <p:column>
+                        <p:inputText id="fname" maxlength="10" value="#{membersBean.firstName}"/>
+                    </p:column>
+                    <p:column>
+                        <p:outputLabel value="Last Name:" />
+                    </p:column>
+                    <p:column>
+                        <p:inputText id="lname" maxlength="20" value="#{membersBean.lastName}"/>
+                    </p:column>
+                    <p:column>
+                        <p:outputLabel value="Address:" />
+                    </p:column>
+                    <p:column>
+                        <p:inputText id="address" maxlength="35" value="#{membersBean.address}"/>
+                    </p:column>
+                    <p:column>
+                        <p:outputLabel value="City:" />
+                    </p:column>
+                    <p:column>
+                        <p:inputText id="city" maxlength="25" value="#{membersBean.city}"/>
+                    </p:column>
+                    <p:column>
+                        <p:outputLabel value="State:" />
+                    </p:column>
+                    <p:column>
+                        <p:inputText id="state" maxlength="2" value="#{membersBean.state}"/>
+                    </p:column>
+                    <p:column>
+                        <p:outputLabel value="Zip:" />
+                    </p:column>
+                    <p:column>
+                        <p:inputText id="zip" maxlength="5" value="#{membersBean.zip}"/>
+                    </p:column>
+                    <p:column>
+                        <p:outputLabel value="Membership Type:" />
+                    </p:column>
+                    <p:column>
+                        <p:inputText id="membershipType" maxlength="25" value="#{membersBean.membershipType}"/>
+                    </p:column>    
+                    <p:column>
+                        <p:outputLabel value="Quarterly Minimum" />
+                    </p:column>
+                    <p:column>
+                        <p:inputText id="quartMin" maxlength="8" value="#{membersBean.quarterlyMinimum}"/>
+                    </p:column>        
                 </h:panelGrid>
                 <br />
-                <p:commandButton value="Add Record" actionListener="#{membersBean.updateMember()}" />
-                    
-                </h:form>
-               </div>
-         </ui:define>
-    
-    </ui:composition>
+                <p:commandButton value="Update Record" actionListener="#{membersBean.updateMember(membersBean.id)}" id="updateMember" />
+
+            </h:form>
+            <h:form> 
+                <p:growl id="recordActions"/>
+                <p:menubar>
+                    <p:menuitem class="adminMenu" value="Member  Records" url="/faces/admin-pages/view-records/members-data.xhtml" />
+                </p:menubar>
+            </h:form>
+        </div>
+    </ui:define>
+
+</ui:composition>
 

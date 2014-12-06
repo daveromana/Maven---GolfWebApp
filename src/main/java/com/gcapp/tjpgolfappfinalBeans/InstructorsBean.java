@@ -27,7 +27,7 @@ public class InstructorsBean implements Serializable {
     private Integer id;
     private int instructorId;
     private String name;
-    private double rate;
+    private BigDecimal rate;
     private String availability;
     private String teaching;
     
@@ -61,35 +61,43 @@ public class InstructorsBean implements Serializable {
        instructor.setName(name);
        instructor.setAvailability(availability);
        instructor.setTeaching(teaching);
-       instructor.setRate(new BigDecimal(rate));
+       instructor.setRate(rate);
        instructorsDAO.create(instructor);
        instructors.add(instructor);
        return null;    
     }
     
-    public String findInstructorById(int id){
+    public String findInstructorById(int id)throws IllegalArgumentException{
+        if(id <= 0){
+            throw new IllegalArgumentException("ID Must Be Greater Than 0");
+        }
         Instructors is = instructorsDAO.find(id);
-        is.getId();
-        is.getInstructorId();
-        is.getName();
-        is.getTeaching();
-        is.getAvailability();
-        is.getRate();
-        return null;
+        instructorId = is.getInstructorId();
+        name = is.getName();
+        teaching = is.getTeaching();
+        availability = is.getAvailability();
+        rate = is.getRate();
+        return "edit-instructor?faces-redirect=true";
     }
     
-    private String updateInstructor(){
-          Instructors is = new Instructors();
-          is.setId(instructorId);
+    public String updateInstructor(int id)throws IllegalArgumentException{
+        if(id <= 0){
+            throw new IllegalArgumentException("ID Must Be Greater Than 0");
+        }
+          Instructors is = instructorsDAO.find(id);
           is.setInstructorId(instructorId);
           is.setName(name);
           is.setTeaching(teaching);
           is.setAvailability(availability);
-          is.setRate(new BigDecimal(rate));
-          return null;
+          is.setRate(rate);
+          instructorsDAO.edit(is);
+          return "view-records/instructor-data?faces-redirect=true";
     }
     
-    public String deleteInstructor(int id){
+    public String deleteInstructor(int id)throws IllegalArgumentException{
+        if(id <= 0){
+            throw new IllegalArgumentException("ID Must Be Greater Than 0");
+        }
         Instructors is = instructorsDAO.find(id);
         instructors.remove(is);
         instructorsDAO.remove(is);
@@ -108,7 +116,10 @@ public class InstructorsBean implements Serializable {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Integer id)throws IllegalArgumentException {
+        if(id <= 0){
+            throw new IllegalArgumentException("ID Must Be Greater Than 0");
+        }
         this.id = id;
     }
 
@@ -116,7 +127,10 @@ public class InstructorsBean implements Serializable {
         return instructorId;
     }
 
-    public void setInstructorId(int instructorId) {
+    public void setInstructorId(int instructorId)throws IllegalArgumentException {
+        if(instructorId <= 0){
+            throw new IllegalArgumentException("ID Must Be Greater Than 0");
+        }
         this.instructorId = instructorId;
     }
 
@@ -124,15 +138,18 @@ public class InstructorsBean implements Serializable {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name)throws IllegalArgumentException {
+        if(name.isEmpty()){
+            throw new IllegalArgumentException("Please Enter A Name");
+        }
         this.name = name;
     }
 
-    public double getRate() {
+    public BigDecimal getRate() {
         return rate;
     }
 
-    public void setRate(double rate) {
+    public void setRate(BigDecimal rate)throws IllegalArgumentException {
         this.rate = rate;
     }
 
@@ -140,7 +157,10 @@ public class InstructorsBean implements Serializable {
         return availability;
     }
 
-    public void setAvailability(String availability) {
+    public void setAvailability(String availability)throws IllegalArgumentException {
+        if(availability.isEmpty()){
+            throw new IllegalArgumentException("Please Enter Availability");
+        }
         this.availability = availability;
     }
 
@@ -148,7 +168,10 @@ public class InstructorsBean implements Serializable {
         return teaching;
     }
 
-    public void setTeaching(String teaching) {
+    public void setTeaching(String teaching)throws IllegalArgumentException {
+        if(teaching.isEmpty()){
+            throw new IllegalArgumentException("Please Enter Teaching Type");
+        }
         this.teaching = teaching;
     }
 

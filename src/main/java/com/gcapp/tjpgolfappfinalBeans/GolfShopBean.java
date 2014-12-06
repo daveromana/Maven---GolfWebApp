@@ -23,12 +23,12 @@ import javax.inject.Named;
 @Named("golfShopBean")
 public class GolfShopBean implements Serializable {
     private List<GolfShop> golfShopData;
-    private int golfShopId;
+    private BigDecimal golfShopId;
     private Integer id;
-    private double greensSales;
-    private double cartSales;
-    private double shopSales;
-    private double memberCharges;
+    private BigDecimal greensSales;
+    private BigDecimal cartSales;
+    private BigDecimal shopSales;
+    private BigDecimal memberCharges;
  
     
     @Inject
@@ -58,46 +58,51 @@ public class GolfShopBean implements Serializable {
     public String addGolfShopData(){
         GolfShop gs = new GolfShop();
         gs.setId(id);
-        gs.setGolfShopId(new BigDecimal(golfShopId));
-        gs.setGreensFees(new BigDecimal(greensSales));
-        gs.setCartFees(new BigDecimal(cartSales));
-        gs.setShopSales(new BigDecimal(shopSales));
-        gs.setMemberCharges(new BigDecimal(memberCharges));
+        gs.setGolfShopId(golfShopId);
+        gs.setGreensFees(greensSales);
+        gs.setCartFees(cartSales);
+        gs.setShopSales(shopSales);
+        gs.setMemberCharges(memberCharges);
         golfshopDAO.create(gs);
         golfShopData.add(gs);
         return null;
     }
     
-    public String deleteGolfShopRecord(int id){
+    public String deleteGolfShopRecord(int id)throws IllegalArgumentException{
+        if(id <= 0){
+            throw new IllegalArgumentException("ID Must Be Greater Than 0");
+        }
         GolfShop gs = golfshopDAO.find(id);
         golfShopData.remove(gs);
         golfshopDAO.remove(gs);
         return null;
     }
         
-    public String findById(int id){
+    public String findById(int id)throws IllegalArgumentException{
+        if(id <= 0){
+            throw new IllegalArgumentException("ID Must Be Greater Than 0");
+        }
         GolfShop gs = golfshopDAO.find(id);
-        gs.getId();
-        gs.getGolfShopId();
-        gs.getGreensFees();
-        gs.getCartFees();
-        gs.getShopSales();
-        gs.getMemberCharges();
-        golfshopDAO.edit(gs);
-        return null; 
+        golfShopId = gs.getGolfShopId();
+        greensSales = gs.getGreensFees();
+        cartSales = gs.getCartFees();
+        shopSales = gs.getShopSales();
+        memberCharges = gs.getMemberCharges();
+        return "edit-golf-shop-record?faces-redirect=true";
     }
     
-    public String updateGolfShopData(){
-        GolfShop gs = new GolfShop();
-        gs.setId(id);
-        gs.setGolfShopId(new BigDecimal(golfShopId));
-        gs.setGreensFees(new BigDecimal(greensSales));
-        gs.setCartFees(new BigDecimal(cartSales));
-        gs.setShopSales(new BigDecimal(shopSales));
-        gs.setMemberCharges(new BigDecimal(memberCharges));
-        golfshopDAO.create(gs);
-        golfShopData.add(gs);
-        return null;
+    public String updateGolfShopData(int id)throws IllegalArgumentException{
+        if(id <= 0){
+            throw new IllegalArgumentException("ID Must Be Greater Than 0");
+        }
+        GolfShop gs = golfshopDAO.find(id);
+        gs.setGolfShopId(golfShopId);
+        gs.setGreensFees(greensSales);
+        gs.setCartFees(cartSales);
+        gs.setShopSales(shopSales);
+        gs.setMemberCharges(memberCharges);
+        golfshopDAO.edit(gs);
+        return "view-records/golf-shop-data";
     }
 
     public List<GolfShop> getGolfShopData() {
@@ -107,20 +112,15 @@ public class GolfShopBean implements Serializable {
     public void setGolfShopData(List<GolfShop> golfShopData) {
         this.golfShopData = golfShopData;
     }
-
-    public int getGolfShopId() {
-        return golfShopId;
-    }
-
-    public void setGolfShopId(int golfShopId) {
-        this.golfShopId = golfShopId;
-    }
-
+    
     public Integer getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Integer id) throws IllegalArgumentException{
+        if(id <= 0){
+            throw new IllegalArgumentException("ID Must Be Greater Than 0");
+        }
         this.id = id;
     }
 
@@ -128,51 +128,59 @@ public class GolfShopBean implements Serializable {
         return golfshopDAO;
     }
 
-    public void setGolfshopDAO(GolfShopFacade golfshopDAO) {
+    public void setGolfshopDAO(GolfShopFacade golfshopDAO) throws IllegalArgumentException{
         this.golfshopDAO = golfshopDAO;
-    }
-    
-  
-
-    public double getGreensSales() {
-        return greensSales;
-    }
-
-    public void setGreensSales(double greensSales) {
-        this.greensSales = greensSales;
-    }
-
-    public double getCartSales() {
-        return cartSales;
-    }
-
-    public void setCartSales(double cartSales) {
-        this.cartSales = cartSales;
-    }
-
-    public double getShopSales() {
-        return shopSales;
-    }
-
-    public void setShopSales(double shopSales) {
-        this.shopSales = shopSales;
-    }
-
-    public double getMemberCharges() {
-        return memberCharges;
-    }
-
-    public void setMemberCharges(double memberCharges) {
-        this.memberCharges = memberCharges;
     }
 
     public GolfShopFacade getGolfshopService() {
         return golfshopDAO;
     }
 
-    public void setGolfshopService(GolfShopFacade golfshopService) {
+    public void setGolfshopService(GolfShopFacade golfshopService)throws IllegalArgumentException {
         this.golfshopDAO = golfshopService;
     }
+
+    public BigDecimal getGolfShopId() {
+        return golfShopId;
+    }
+
+    public void setGolfShopId(BigDecimal golfShopId)throws IllegalArgumentException {
+        this.golfShopId = golfShopId;
+    }
+
+    public BigDecimal getGreensSales() {
+        return greensSales;
+    }
+
+    public void setGreensSales(BigDecimal greensSales)throws IllegalArgumentException {
+        this.greensSales = greensSales;
+    }
+
+    public BigDecimal getCartSales() {
+        return cartSales;
+    }
+
+    public void setCartSales(BigDecimal cartSales)throws IllegalArgumentException {
+        this.cartSales = cartSales;
+    }
+
+    public BigDecimal getShopSales() {
+        return shopSales;
+    }
+
+    public void setShopSales(BigDecimal shopSales)throws IllegalArgumentException {
+        this.shopSales = shopSales;
+    }
+
+    public BigDecimal getMemberCharges() {
+        return memberCharges;
+    }
+
+    public void setMemberCharges(BigDecimal memberCharges)throws IllegalArgumentException {
+        this.memberCharges = memberCharges;
+    }
+    
+    
 
     
     

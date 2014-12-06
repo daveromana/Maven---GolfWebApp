@@ -21,29 +21,29 @@
                     <p:outputLabel value="Restaurant Id:" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="instId" value="#{restuarantBean.id}"/>
+                    <p:inputText id="restId" maxlength="5" value="#{restuarantBean.id}"/>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="Drink Charges:" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="rate" value="#{restuarantBean.drinkCharges}"/>
+                    <p:inputText id="drinkCharge" maxlength="8" value="#{restuarantBean.drinkCharges}"/>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="Food Charges" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="teaching" value="#{restuarantBean.foodCharges}"/>
+                    <p:inputText id="foodCharge" maxlength="8" value="#{restuarantBean.foodCharges}"/>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="Member Charged To" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="availability" value="#{restuarantBean.memberId}"/>
+                    <p:inputText id="memberId" maxlength="8" value="#{restuarantBean.memberId}"/>
                 </p:column>
      
                 <br />
-                <p:commandButton value="Add Record" actionListener="#{restuarantBean.addRestaurantData()}" />
+                <p:commandButton value="Add Record" actionListener="#{restuarantBean.addRestaurantData()}" id="addRestaurant" />
                 </h:panelGrid>
 
                 </h:form>

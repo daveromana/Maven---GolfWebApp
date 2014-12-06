@@ -34,7 +34,7 @@ public class MembersBean implements Serializable{
     private String state;
     private String zip;
     private String membershipType;
-    private double quarterlyMinimum;
+    private BigDecimal quarterlyMinimum;
     
     @Inject
     private MembersFacade membersDAO;
@@ -65,36 +65,44 @@ public class MembersBean implements Serializable{
         member.setState(state);
         member.setZip(zip);
         member.setMembershipType(membershipType);
-        member.setQuarterlyMinimum(new BigDecimal(quarterlyMinimum));
+        member.setQuarterlyMinimum(quarterlyMinimum);
         membersDAO.create(member);
         members.add(member);
         return null;
     }
     
-    public String deleteMemberRecord(int id){
+    public String deleteMemberRecord(int id)throws IllegalArgumentException{
+        if(id <= 0){
+            throw new IllegalArgumentException("ID Must Be Greater Than 0");
+        }
         Members mb = membersDAO.find(id);
         members.remove(mb);
         membersDAO.remove(mb);
         return null;
     }
     
-    public String findMember(int id){
+    public String findMember(int id)throws IllegalArgumentException{
+        if(id <= 0){
+            throw new IllegalArgumentException("ID Must Be Greater Than 0");
+        }
         Members ms = membersDAO.find(id);
-        ms.getMemberId();
-        ms.getFirstName();
-        ms.getLastName();
-        ms.getAddress();
-        ms.getCity();
-        ms.getState();
-        ms.getZip();
-        ms.getMembershipType();
-        ms.getQuarterlyMinimum();
-        return null;
+        memberId = ms.getMemberId();
+        firstName = ms.getFirstName();
+        lastName = ms.getLastName();
+        address = ms.getAddress();
+        city = ms.getCity();
+        state = ms.getState();
+        zip = ms.getZip();
+        membershipType = ms.getMembershipType();
+        quarterlyMinimum = ms.getQuarterlyMinimum();
+        return "edit-member?faces-redirect=true";
     }
     
-    public String updateMember(){
-        Members ms = new Members();
-        ms.setId(id);
+    public String updateMember(int id)throws IllegalArgumentException{
+        if(id <= 0){
+            throw new IllegalArgumentException("ID Must Be Greater Than 0");
+        }
+        Members ms = membersDAO.find(id);
         ms.setMemberId(memberId);
         ms.setFirstName(firstName);
         ms.setLastName(lastName);
@@ -103,9 +111,9 @@ public class MembersBean implements Serializable{
         ms.setState(state);
         ms.setZip(zip);
         ms.setMembershipType(membershipType);
-        ms.setQuarterlyMinimum(new BigDecimal(quarterlyMinimum));
-        membersDAO.create(ms);
-        return null;
+        ms.setQuarterlyMinimum(quarterlyMinimum);
+        membersDAO.edit(ms);
+        return "view-records/members-data?faces-redirect=true";
     }
 
 
@@ -121,7 +129,10 @@ public class MembersBean implements Serializable{
         return memberId;
     }
 
-    public void setMemberId(int memberId) {
+    public void setMemberId(int memberId)throws IllegalArgumentException {
+        if(memberId <= 0){
+            throw new IllegalArgumentException("ID Must Be Greater Than 0");
+        }
         this.memberId = memberId;
     }
 
@@ -129,7 +140,10 @@ public class MembersBean implements Serializable{
         return city;
     }
 
-    public void setCity(String city) {
+    public void setCity(String city)throws IllegalArgumentException {
+        if(city.isEmpty()){
+             throw new IllegalArgumentException("Please Enter A City");
+        }
         this.city = city;
     }
 
@@ -137,7 +151,10 @@ public class MembersBean implements Serializable{
         return state;
     }
 
-    public void setState(String state) {
+    public void setState(String state)throws IllegalArgumentException {
+        if(state.isEmpty()){
+             throw new IllegalArgumentException("Please Enter A State");
+        }
         this.state = state;
     }
 
@@ -145,7 +162,10 @@ public class MembersBean implements Serializable{
         return zip;
     }
 
-    public void setZip(String zip) {
+    public void setZip(String zip)throws IllegalArgumentException {
+        if(zip.isEmpty()){
+             throw new IllegalArgumentException("Please Enter A Zip");
+        }
         this.zip = zip;
     }
 
@@ -153,7 +173,10 @@ public class MembersBean implements Serializable{
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Integer id)throws IllegalArgumentException {
+         if(id <= 0){
+             throw new IllegalArgumentException("Id cant be less than 0");
+        }
         this.id = id;
     }
     
@@ -161,7 +184,10 @@ public class MembersBean implements Serializable{
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(String firstName)throws IllegalArgumentException {
+        if(firstName.isEmpty()){
+             throw new IllegalArgumentException("Please Enter A First Name");
+        }
         this.firstName = firstName;
     }
 
@@ -169,7 +195,10 @@ public class MembersBean implements Serializable{
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(String lastName)throws IllegalArgumentException {
+         if(lastName.isEmpty()){
+             throw new IllegalArgumentException("Please Enter A Last Name");
+        }
         this.lastName = lastName;
     }
 
@@ -177,7 +206,10 @@ public class MembersBean implements Serializable{
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(String address)throws IllegalArgumentException {
+         if(address.isEmpty()){
+             throw new IllegalArgumentException("Please Enter An Address");
+        }
         this.address = address;
     }
 
@@ -185,15 +217,18 @@ public class MembersBean implements Serializable{
         return membershipType;
     }
 
-    public void setMembershipType(String membershipType) {
+    public void setMembershipType(String membershipType)throws IllegalArgumentException {
+         if(membershipType.isEmpty()){
+             throw new IllegalArgumentException("Please Enter Membership Type");
+        }
         this.membershipType = membershipType;
     }
 
-    public double getQuarterlyMinimum() {
+    public BigDecimal getQuarterlyMinimum() {
         return quarterlyMinimum;
     }
 
-    public void setQuarterlyMinimum(double quarterlyMinimum) {
+    public void setQuarterlyMinimum(BigDecimal quarterlyMinimum)throws IllegalArgumentException {
         this.quarterlyMinimum = quarterlyMinimum;
     }
 
@@ -201,7 +236,7 @@ public class MembersBean implements Serializable{
         return membersDAO;
     }
 
-    public void setMembersDAO(MembersFacade membersDAO) {
+    public void setMembersDAO(MembersFacade membersDAO)throws IllegalArgumentException {
         this.membersDAO = membersDAO;
     }
     

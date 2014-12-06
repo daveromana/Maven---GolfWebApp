@@ -21,41 +21,41 @@
                     <p:outputLabel value="Id:" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="Id" value="#{instructorsBean.id}"/>
+                    <p:inputText id="Id" maxlength="3" value="#{instructorsBean.id}"/>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="Instructor Id:" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="instId" value="#{instructorsBean.instructorId}"/>
+                    <p:inputText id="instId" maxlength="8" value="#{instructorsBean.instructorId}"/>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="Instructor Name:" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="instName" value="#{instructorsBean.name}"/>
+                    <p:inputText id="instName" maxlength="15" value="#{instructorsBean.name}"/>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="Hourly Rate:" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="rate" value="#{instructorsBean.rate}"/>
+                    <p:inputText id="rate" maxlength="25" value="#{instructorsBean.rate}"/>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="Teachings:" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="teaching" value="#{instructorsBean.teaching}"/>
+                    <p:inputText id="teaching" maxlength="50" value="#{instructorsBean.teaching}"/>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="Availability:" />
                 </p:column>
                 <p:column>
-                    <p:inputText id="availability" value="#{instructorsBean.availability}"/>
+                    <p:inputText id="availability" maxlength="8" value="#{instructorsBean.availability}"/>
                 </p:column>
      
                 <br />
-                <p:commandButton value="Add Record" action="#{instructorsBean.addInstructor()}" />
+                <p:commandButton value="Add Record" action="#{instructorsBean.addInstructor()}" id="addInsctructor" />
                 </h:panelGrid>
 
                 </h:form>

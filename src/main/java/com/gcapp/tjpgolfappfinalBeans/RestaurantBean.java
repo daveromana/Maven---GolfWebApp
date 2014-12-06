@@ -58,25 +58,33 @@ public class RestaurantBean implements Serializable {
         return null;
     }
     
-    public String findRestuarantData(int id){
+    public String findRestuarantData(int id)throws IllegalArgumentException{
+        if(id <= 0){
+            throw new IllegalArgumentException("ID Cant Be Less Than 0");
+        }
         Restaurant rs = restaurantDAO.find(id);
-        rs.getId();
-        rs.getMemberId();
-        rs.getFoodCharges();
-        rs.getDrinkCharges();
-        return null;
+        memberId = rs.getMemberId();
+        foodCharges = rs.getFoodCharges();
+        drinkCharges = rs.getDrinkCharges();
+        return "edit-restaurant?faces-redirect=true";
     }
     
-    public String updateRestuarantData(){
-        Restaurant rs = new Restaurant();
-        rs.setId(id);
+    public String updateRestuarantData(int id)throws IllegalArgumentException{
+        if(id <= 0){
+            throw new IllegalArgumentException("ID Cant Be Less Than 0");
+        }
+        Restaurant rs = restaurantDAO.find(id);
         rs.setFoodCharges(foodCharges);
         rs.setDrinkCharges(drinkCharges);
         rs.setMemberId(memberId);
-        return null;
+        restaurantDAO.edit(rs);
+        return "view-records/restaurant-data?faces-redirect=true";
     }
     
-    public String deleteRestuarantData(int id){
+    public String deleteRestuarantData(int id)throws IllegalArgumentException{
+        if(id <= 0){
+            throw new IllegalArgumentException("ID Cant Be Less Than 0");
+        }
         Restaurant rs = restaurantDAO.find(id);
         restaurant.remove(rs);
         restaurantDAO.remove(rs);
@@ -95,7 +103,10 @@ public class RestaurantBean implements Serializable {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Integer id)throws IllegalArgumentException {
+        if(id <= 0){
+            throw new IllegalArgumentException("ID Cant Be Less Than 0");
+        }
         this.id = id;
     }
 
@@ -104,6 +115,7 @@ public class RestaurantBean implements Serializable {
     }
 
     public void setDrinkCharges(BigDecimal drinkCharges) {
+
         this.drinkCharges = drinkCharges;
     }
 
@@ -111,7 +123,7 @@ public class RestaurantBean implements Serializable {
         return foodCharges;
     }
 
-    public void setFoodCharges(BigDecimal foodCharges) {
+    public void setFoodCharges(BigDecimal foodCharges)throws IllegalArgumentException {
         this.foodCharges = foodCharges;
     }
 
@@ -119,7 +131,7 @@ public class RestaurantBean implements Serializable {
         return memberId;
     }
 
-    public void setMemberId(Integer memberId) {
+    public void setMemberId(Integer memberId)throws IllegalArgumentException {
         this.memberId = memberId;
     }
 
@@ -127,7 +139,7 @@ public class RestaurantBean implements Serializable {
         return restaurantDAO;
     }
 
-    public void setRestaurantDAO(RestaurantFacade restaurantDAO) {
+    public void setRestaurantDAO(RestaurantFacade restaurantDAO)throws IllegalArgumentException {
         this.restaurantDAO = restaurantDAO;
     }
     

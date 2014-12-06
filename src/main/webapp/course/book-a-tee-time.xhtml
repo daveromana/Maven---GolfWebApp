@@ -13,13 +13,37 @@
                 <p:graphicImage value="/resources/images/home_hr.png"/>
                 <br />
             </div>
-                <div id="content">
+                <div class="inputForm" style="margin: 0 auto; width: 400px;">
                 <h2>Book A Tee Time Today</h2>
                 <h:form id="form">
                     <p:growl id="msgs" showDetail="true" />
                     <h:panelGrid columns="2" cellpadding="5">
                         <p:outputLabel for="datetime" value="Book Your Tee Time:" />
                         <p:calendar id="datetime" value="#{calendarView.date10}" pattern="MM/dd/yyyy HH:mm" />
+                        <p:column>
+                            <p:outputLabel value="Player 1:" />
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="player1" maxlength="5" value="#{employeeBean.zip}"/>
+                        </p:column>
+                        <p:column>
+                            <p:outputLabel value="Player 2:" />
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="player2" maxlength="5" value="#{employeeBean.zip}"/>
+                        </p:column>
+                        <p:column>
+                            <p:outputLabel value="Player 3:" />
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="player3" maxlength="5" value="#{employeeBean.zip}"/>
+                        </p:column>
+                        <p:column>
+                            <p:outputLabel value="Player 4:" />
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="player4" maxlength="5" value="#{employeeBean.zip}"/>
+                        </p:column>
                     </h:panelGrid>
                      <p:commandButton value="Submit" update="msgs" actionListener="#{calendarView.click}" icon="ui-icon-check" />
                 </h:form>

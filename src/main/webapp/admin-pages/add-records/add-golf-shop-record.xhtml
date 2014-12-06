@@ -21,35 +21,35 @@
                     <p:outputLabel value="Golf Shop Id:" />
                 </p:column>
                 <p:column>
-                    *<p:inputText id="gsID" value="#{golfShopBean.golfShopId}"/>
+                    *<p:inputText id="gsID" maxlength="5" value="#{golfShopBean.golfShopId}"/>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="Daily Total Greens Fees:" />
                 </p:column>
                 <p:column>
-                    $<p:inputText id="greenSales" value="#{golfShopBean.greensSales}"/>
+                    $<p:inputText id="greenSales" maxlength="8" value="#{golfShopBean.greensSales}"/>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="Daily Total Cart Fees:" />
                 </p:column>
                 <p:column>
-                    $<p:inputText id="cartSales" value="#{golfShopBean.cartSales}"/>
+                    $<p:inputText id="cartSales" maxlength="8" value="#{golfShopBean.cartSales}"/>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="Shop Sales:" />
                 </p:column>
                 <p:column>
-                    $<p:inputText id="shopSales" value="#{golfShopBean.shopSales}"/>
+                    $<p:inputText id="shopSales" maxlength="8" value="#{golfShopBean.shopSales}"/>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="Member Charges:" />
                 </p:column>
                 <p:column>
-                    $<p:inputText id="membercharges" value="#{golfShopBean.memberCharges}"/>
+                    $<p:inputText id="membercharges" maxlength="8" value="#{golfShopBean.memberCharges}"/>
                 </p:column>
      
                 <br />
-                <p:commandButton value="Add Record" action="#{golfShopBean.addGolfShopData()}" />
+                <p:commandButton value="Add Record" action="#{golfShopBean.addGolfShopData()}" id="addGolfShop" />
                 </h:panelGrid>
                 </h:form>
                  <h:form> 
