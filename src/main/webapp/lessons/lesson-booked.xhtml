@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/template/hillsTemplate.xhtml"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+        <div id="banner-contact" style="width: 900px;">
+            <p:graphicImage width="1200" value="/resources/images/banner_2.jpg"/>
+        </div>
+
+        <div id="title" style="text-align: center;">
+            <h1>Tournament Registration</h1>  
+            <p:graphicImage value="/resources/images/home_hr.png"/>
+            <br />
+            <div id="center">
+                
+                <h:outputText value="Your Lesson Has Been Booked" />
+                
+            <h:form> 
+                <p:growl id="recordActions"/>
+                <p:menubar>
+                    <p:menuitem class="adminMenu" value="Return To Home Page" url="/faces/index.xhtml" />
+                </p:menubar>
+            </h:form>
+                
+            </div>    
+        </div>
+    </ui:define>
+</ui:composition>

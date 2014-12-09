@@ -5,16 +5,49 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 template="/template/hillsTemplate.xhtml"
                 xmlns:p="http://primefaces.org/ui">
-         
-         <ui:define name="content">
-            <div id="title" style="text-align: center;">
-                <h1>The Hills | Golf &amp; Country Club</h1>  
-                <p:graphicImage value="resources/images/home_hr.png"/>
-                <br />
+
+    <ui:define name="content">
+        <div id="banner-contact" style="width: 900px;">
+            <p:graphicImage width="1200" value="/resources/images/banner_2.jpg"/>
+        </div>
+        <div id="title" style="text-align: center;">
+            <h1>Book A Lesson</h1>
+            <p:graphicImage value="/resources/images/home_hr.png"/>
+            <br />
+            <div id="center">
+                <h:form>
+                    <h:panelGrid columns="2" cellpadding="20">
+                        <p:column>
+                            <p:outputLabel value="First Name:" />
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="empId" value="#{lessonsBean.firstName}"/>
+                        </p:column>
+                        <p:column>
+                            <p:outputLabel value="Last Name:" />
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="fname" value="#{lessonsBean.lastName}"/>
+                        </p:column>
+                        <p:column>
+                            <p:outputLabel value="Date" />
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="lname" value="#{lessonsBean.date}"/>
+                        </p:column>
+                        <p:column>
+                            <p:outputLabel value="Time:" />
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="address" value="#{lessonsBean.time}"/>
+                        </p:column>
+                    </h:panelGrid>
+                    <br />
+                    <p:commandButton value="Submit" actionListener="#{lessonsBean.addNewLesson()}" />
+                </h:form>
             </div>    
-            <div id="page-layout">    
-            </div>    
-         </ui:define>
- </ui:composition>
+        </div>
+    </ui:define>
+</ui:composition>
 
 

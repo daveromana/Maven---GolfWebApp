@@ -12,7 +12,7 @@
         </div>
 
         <div id="title" style="text-align: center;">
-            <h1>Tournament Registration</h1>  
+            <h1>Tournament Registration</h1>
             <p:graphicImage value="/resources/images/home_hr.png"/>
             <br />
             <div id="center">
@@ -22,29 +22,29 @@
                             <p:outputLabel value="First Name:" />
                         </p:column>
                         <p:column>
-                            <p:inputText id="empId" value="#{tournamentBean.firstName}"/>
+                            <p:inputText id="empId" value="#{registrationBean.firstName}"/>
                         </p:column>
                         <p:column>
                             <p:outputLabel value="Last Name:" />
                         </p:column>
                         <p:column>
-                            <p:inputText id="fname" value="#{tournamentBean.lastName}"/>
+                            <p:inputText id="fname" value="#{registrationBean.lastName}"/>
                         </p:column>
                         <p:column>
                             <p:outputLabel value="Event:" />
                         </p:column>
                         <p:column>
-                            <p:inputText id="lname" value="#{tournamentBean.event}"/>
+                            <p:inputText id="lname" value="#{registrationBean.event}"/>
                         </p:column>
                         <p:column>
                             <p:outputLabel value="Member Id:" />
                         </p:column>
                         <p:column>
-                            <p:inputText id="address" value="#{tournamentBean.memberid}"/>
+                            <p:inputText id="address" value="#{registrationBean.memberId}"/>
                         </p:column>
                     </h:panelGrid>
                     <br />
-                    <p:commandButton value="Submit" actionListener="#{tournamentBean.sendRegistration()}" />
+                    <p:commandButton value="Submit" actionListener="#{registrationBean.tournamentRegister()}" />
                 </h:form>
             </div>    
         </div>

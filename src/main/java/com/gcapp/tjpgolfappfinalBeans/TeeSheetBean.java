@@ -14,6 +14,7 @@ import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import org.eclipse.persistence.jpa.jpql.parser.DateTime;
 
 /**
  *
@@ -46,6 +47,8 @@ public class TeeSheetBean implements Serializable {
         ts.setPlayerThree(playerThree);
         ts.setPlayerFour(playerFour);
         ts.setTeeTime(teeTime);
+        teeSheetDAO.create(ts);
+        teeSheet.add(ts);
         return "index?faces-redirect=true";
     }
 
@@ -100,6 +103,8 @@ public class TeeSheetBean implements Serializable {
     public void setTeeTime(Date teeTime) {
         this.teeTime = teeTime;
     }
+
+    
 
     public TeesheetFacade getTeeSheetDAO() {
         return teeSheetDAO;

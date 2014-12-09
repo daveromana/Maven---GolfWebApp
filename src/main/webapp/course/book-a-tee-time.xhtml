@@ -9,7 +9,7 @@
          
          <ui:define name="content">
             <div id="title" style="text-align: center;">
-                <h1>The Hills | Golf &amp; Country Club</h1>  
+                <h1>The Hills | Golf &amp; Country Club</h1>
                 <p:graphicImage value="/resources/images/home_hr.png"/>
                 <br />
             </div>
@@ -19,33 +19,33 @@
                     <p:growl id="msgs" showDetail="true" />
                     <h:panelGrid columns="2" cellpadding="5">
                         <p:outputLabel for="datetime" value="Book Your Tee Time:" />
-                        <p:calendar id="datetime" value="#{calendarView.date10}" pattern="MM/dd/yyyy HH:mm" />
+                        <p:calendar id="datetime" value="#{teeSheetBean.teeTime}" pattern="MM/dd/yyyy HH:mm:ss" />
                         <p:column>
                             <p:outputLabel value="Player 1:" />
                         </p:column>
                         <p:column>
-                            <p:inputText id="player1" maxlength="5" value="#{employeeBean.zip}"/>
+                            <p:inputText id="player1" maxlength="50" value="#{teeSheetBean.playerOne}"/>
                         </p:column>
                         <p:column>
                             <p:outputLabel value="Player 2:" />
                         </p:column>
                         <p:column>
-                            <p:inputText id="player2" maxlength="5" value="#{employeeBean.zip}"/>
+                            <p:inputText id="player2" maxlength="50" value="#{teeSheetBean.playerTwo}"/>
                         </p:column>
                         <p:column>
                             <p:outputLabel value="Player 3:" />
                         </p:column>
                         <p:column>
-                            <p:inputText id="player3" maxlength="5" value="#{employeeBean.zip}"/>
+                            <p:inputText id="player3" maxlength="50" value="#{teeSheetBean.playerThree}"/>
                         </p:column>
                         <p:column>
                             <p:outputLabel value="Player 4:" />
                         </p:column>
                         <p:column>
-                            <p:inputText id="player4" maxlength="5" value="#{employeeBean.zip}"/>
+                            <p:inputText id="player4" maxlength="50" value="#{teeSheetBean.playerFour}"/>
                         </p:column>
                     </h:panelGrid>
-                     <p:commandButton value="Submit" update="msgs" actionListener="#{calendarView.click}" icon="ui-icon-check" />
+                    <p:commandButton value="Submit Tee Time" update="msgs" actionListener="#{teeSheetBean.addNewTeeTime()}" icon="ui-icon-check" />
                 </h:form>
             </div>    
                 
