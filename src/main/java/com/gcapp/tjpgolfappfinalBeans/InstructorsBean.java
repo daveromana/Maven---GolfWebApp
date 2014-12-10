@@ -46,6 +46,7 @@ public class InstructorsBean implements Serializable {
      * to return to the same page, return null.
      * @return 
      */
+    //-----gets all databse records---//
     public String processGetAllInstructors() {
         instructors = instructorsDAO.findAll();
         // preferred way to go to a page
@@ -53,7 +54,7 @@ public class InstructorsBean implements Serializable {
         // Option to redirect to page
 //        return "admin-pages/golf-shop-data?faces-redirect=true";
     }
-
+    //----adds a record to the database----//
     public String addInstructor(){
        Instructors instructor = new Instructors();
        instructor.setId(id);
@@ -66,11 +67,9 @@ public class InstructorsBean implements Serializable {
        instructors.add(instructor);
        return null;    
     }
-    
+    //-----finds a database record of type instructor----//
     public String findInstructorById(int id)throws IllegalArgumentException{
-        if(id <= 0){
-            throw new IllegalArgumentException("ID Must Be Greater Than 0");
-        }
+
         Instructors is = instructorsDAO.find(id);
         instructorId = is.getInstructorId();
         name = is.getName();
@@ -79,11 +78,9 @@ public class InstructorsBean implements Serializable {
         rate = is.getRate();
         return "edit-instructor?faces-redirect=true";
     }
-    
+    //----updates an instructor record----//
     public String updateInstructor(int id)throws IllegalArgumentException{
-        if(id <= 0){
-            throw new IllegalArgumentException("ID Must Be Greater Than 0");
-        }
+
           Instructors is = instructorsDAO.find(id);
           is.setInstructorId(instructorId);
           is.setName(name);
@@ -91,9 +88,10 @@ public class InstructorsBean implements Serializable {
           is.setAvailability(availability);
           is.setRate(rate);
           instructorsDAO.edit(is);
-          return "view-records/instructor-data?faces-redirect=true";
+          this.instructors = instructorsDAO.findAll();
+          return "/admin-pages/view-records/instructor-data?faces-redirect=true";
     }
-    
+    //----deletes an instructor record----//
     public String deleteInstructor(int id)throws IllegalArgumentException{
         if(id <= 0){
             throw new IllegalArgumentException("ID Must Be Greater Than 0");

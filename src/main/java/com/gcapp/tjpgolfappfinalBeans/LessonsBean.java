@@ -36,7 +36,7 @@ public class LessonsBean implements Serializable{
     @Inject
     private LessonsFacade lessonsDAO;
 
-    
+    //----users book there own lessons. this adds a record to the lessons table in the database----//
     public String addNewLesson(){
         Lessons ls = new Lessons();
         ls.setId(id);
@@ -48,6 +48,11 @@ public class LessonsBean implements Serializable{
         return "lesson-booked?faces-redirect=true";
     }
 
+     //----finds all records in the database----//
+    public String processGetAllGolfLessons() {
+        lessons = lessonsDAO.findAll();
+        return "lessons-view";
+    }
     
     public List<Lessons> getLessons() {
         return lessons;
@@ -62,6 +67,9 @@ public class LessonsBean implements Serializable{
     }
 
     public void setId(Integer id) {
+        if(id <= 0){
+            throw new IllegalArgumentException("Id must be greater than 0");
+        }
         this.id = id;
     }
 
@@ -70,6 +78,9 @@ public class LessonsBean implements Serializable{
     }
 
     public void setFirstName(String firstName) {
+        if(firstName.isEmpty()){
+            throw new IllegalArgumentException("First Name Cant Be Empty");
+        }
         this.firstName = firstName;
     }
 
@@ -78,6 +89,9 @@ public class LessonsBean implements Serializable{
     }
 
     public void setLastName(String lastName) {
+        if(lastName.isEmpty()){
+            throw new IllegalArgumentException("Last Name Cant Be Empty");
+        }
         this.lastName = lastName;
     }
 
@@ -86,6 +100,9 @@ public class LessonsBean implements Serializable{
     }
 
     public void setDate(String date) {
+        if(date.isEmpty()){
+            throw new IllegalArgumentException("Date Cant Be Empty");
+        }
         this.date = date;
     }
 
@@ -94,6 +111,9 @@ public class LessonsBean implements Serializable{
     }
 
     public void setTime(String time) {
+        if(time.isEmpty()){
+            throw new IllegalArgumentException("Time Cant Be Empty");
+        }
         this.time = time;
     }
 

@@ -47,6 +47,7 @@ public class GolfShopBean implements Serializable {
      * to return to the same page, return null.
      * @return 
      */
+    //----finds all records in the database----//
     public String processGetAllGolfShopData() {
         golfShopData = golfshopDAO.findAll();
         // preferred way to go to a page
@@ -55,6 +56,7 @@ public class GolfShopBean implements Serializable {
 //        return "admin-pages/golf-shop-data?faces-redirect=true";
     }
     
+    //----adds new record to the database----//
     public String addGolfShopData(){
         GolfShop gs = new GolfShop();
         gs.setId(id);
@@ -67,7 +69,7 @@ public class GolfShopBean implements Serializable {
         golfShopData.add(gs);
         return null;
     }
-    
+    //----deletes records from the databse---//
     public String deleteGolfShopRecord(int id)throws IllegalArgumentException{
         if(id <= 0){
             throw new IllegalArgumentException("ID Must Be Greater Than 0");
@@ -78,6 +80,7 @@ public class GolfShopBean implements Serializable {
         return null;
     }
         
+    //-----finds a record by its id-----//
     public String findById(int id)throws IllegalArgumentException{
         if(id <= 0){
             throw new IllegalArgumentException("ID Must Be Greater Than 0");
@@ -88,9 +91,9 @@ public class GolfShopBean implements Serializable {
         cartSales = gs.getCartFees();
         shopSales = gs.getShopSales();
         memberCharges = gs.getMemberCharges();
-        return "edit-golf-shop-record?faces-redirect=true";
+        return "edit-golf-shop-record";
     }
-    
+    //-----updates a record from the databse----//
     public String updateGolfShopData(int id)throws IllegalArgumentException{
         if(id <= 0){
             throw new IllegalArgumentException("ID Must Be Greater Than 0");
@@ -102,7 +105,8 @@ public class GolfShopBean implements Serializable {
         gs.setShopSales(shopSales);
         gs.setMemberCharges(memberCharges);
         golfshopDAO.edit(gs);
-        return "view-records/golf-shop-data";
+        this.golfShopData = golfshopDAO.findAll();
+        return "/admin-pages/view-records/golf-shop-data";
     }
 
     public List<GolfShop> getGolfShopData() {

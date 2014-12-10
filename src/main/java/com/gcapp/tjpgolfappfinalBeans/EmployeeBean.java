@@ -43,6 +43,7 @@ public class EmployeeBean implements Serializable {
      * to return to the same page, return null.
      * @return 
      */
+    //-------returns all datbase records-----//
     public String processGetAllEmployees() {
         employees = employeeDAO.findAll();
         // preferred way to go to a page
@@ -50,7 +51,7 @@ public class EmployeeBean implements Serializable {
         // Option to redirect to page
         // Return "admin-pages/golf-shop-data?faces-redirect=true";
     }
-
+    //----adds an employee to the database ----//
     public String addEmployee(){
         Employees newEmployees = new Employees();
         newEmployees.setId(id);
@@ -66,18 +67,19 @@ public class EmployeeBean implements Serializable {
         employees.add(newEmployees);
         return null;
     }
-    
+    // ---- deletes an employee from the database ---//
     public String deleteEmployee(int id)throws IllegalArgumentException{
         if(id <= 0){
             throw new IllegalArgumentException("ID Must Be Greater Than 0");
         }
         Employees emp = employeeDAO.find(id);
-        employees.remove(emp);
         employeeDAO.remove(emp);
-        return null;
+        this.employees = employeeDAO.findAll();
+        return "admin-pages/view-records/employee-data";
     }
     
-    public String updateEmployee(int id)throws IllegalArgumentException{
+    //----updates an employee from the database ---//
+    public String updateEmployee(int id)throws IllegalArgumentException {
         if(id <= 0){
             throw new IllegalArgumentException("ID Must Be Greater Than 0");
         }
@@ -92,23 +94,26 @@ public class EmployeeBean implements Serializable {
        emp.setSocailSecurity(socialSecurity);
        emp.setDateHired(dateHired);
        employeeDAO.edit(emp);
-       return "view-records/employee-data";
+       this.employees = employeeDAO.findAll();
+       return "/admin-pages/view-records/employee-data";
     }
     
-    public String findEmployee(int id)throws IllegalArgumentException{
+    //---finds a record in the databse ---//
+    public String findById(int id)throws IllegalArgumentException{
         if(id <= 0){
             throw new IllegalArgumentException("ID Must Be Greater Than 0");
         }
-        Employees updateEmployee = employeeDAO.find(id);
-        employeeId = updateEmployee.getEmployeeId();
-        firstName = updateEmployee.getFirstName();
-        lastName = updateEmployee.getLastName();
-        address = updateEmployee.getAddress();
-        city = updateEmployee.getCity();
-        state = updateEmployee.getState();
-        socialSecurity = updateEmployee.getSocailSecurity();
-        dateHired = updateEmployee.getDateHired();
-        return "edit-employee?faces-redirect=true";
+        Employees emp = employeeDAO.find(id);
+        employeeId = emp.getEmployeeId();
+        firstName = emp.getFirstName();
+        lastName = emp.getLastName();
+        address = emp.getAddress();
+        city = emp.getCity();
+        state = emp.getState();
+        zip = emp.getZip();
+        socialSecurity = emp.getSocailSecurity();
+        dateHired = emp.getDateHired();
+        return "edit-employee";
     }
     
     public List<Employees> getEmployees() {
@@ -237,6 +242,7 @@ public class EmployeeBean implements Serializable {
         this.employeeDAO = employeeDAO;
     }
    
+    
     
     
 }

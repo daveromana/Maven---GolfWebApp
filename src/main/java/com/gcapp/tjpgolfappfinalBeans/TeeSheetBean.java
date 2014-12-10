@@ -38,7 +38,7 @@ public class TeeSheetBean implements Serializable {
         return teeSheet;
     }
     
-    
+    //-------------allows users to book online tee times and saves the to the database-----------//
     public String addNewTeeTime(){
         Teesheet ts = new Teesheet();
         ts.setId(id);
@@ -50,6 +50,11 @@ public class TeeSheetBean implements Serializable {
         teeSheetDAO.create(ts);
         teeSheet.add(ts);
         return "index?faces-redirect=true";
+    }
+    
+       public String processGetTeeTimes() {
+        teeSheet = teeSheetDAO.findAll();
+        return "tee-sheet-view";
     }
 
     public void setTeeSheet(List<Teesheet> teeSheet) {

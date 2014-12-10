@@ -36,6 +36,7 @@ public class MemberRatesBean implements Serializable{
         memberRates = memberRatesDAO.findAll();
     }
     
+    //-----gets membership rates from the database to display on the view----///
     public String retrieveMembershipData() {
         memberRates = memberRatesDAO.findAll();
         // preferred way to go to a page
@@ -65,6 +66,9 @@ public class MemberRatesBean implements Serializable{
     }
 
     public void setId(Integer id) {
+        if(id <=0 ){
+            throw new IllegalArgumentException("ID cant be less than 0");
+        }
         this.id = id;
     }
 
@@ -73,6 +77,9 @@ public class MemberRatesBean implements Serializable{
     }
 
     public void setCategories(String categories) {
+        if(categories.isEmpty()){
+            throw new IllegalArgumentException("Must have a membership category");
+        }
         this.categories = categories;
     }
 
@@ -81,6 +88,9 @@ public class MemberRatesBean implements Serializable{
     }
 
     public void setRates(String rates) {
+        if(rates.isEmpty()){
+            throw new IllegalArgumentException("Must have a membership rate");
+        }
         this.rates = rates;
     }
 
@@ -89,6 +99,9 @@ public class MemberRatesBean implements Serializable{
     }
 
     public void setMonthlyFees(String monthlyFees) {
+         if(monthlyFees.isEmpty()){
+            throw new IllegalArgumentException("Must have monthly fees");
+        }
         this.monthlyFees = monthlyFees;
     }
 
@@ -97,6 +110,9 @@ public class MemberRatesBean implements Serializable{
     }
 
     public void setCharges(String charges) {
+         if(charges.isEmpty()){
+            throw new IllegalArgumentException("Must have charges");
+        }
         this.charges = charges;
     }
     

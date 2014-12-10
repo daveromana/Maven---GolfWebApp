@@ -19,7 +19,7 @@
                 <h:panelGrid columns="4" cellpadding="5">
                     <h:outputLabel value="ID:" style="font-weight:bold" />
                     <p:inputText id="instructorID" value="#{instructorsBean.id}" />
-                    <p:commandButton value="Delete Record" action="#{instructorsBean.deleteInstructor(instructorsBean.id)}" icon="ui-icon-check" />
+                    <p:commandButton value="Delete Record" ajax="false" action="#{instructorsBean.deleteInstructor(instructorsBean.id)}" icon="ui-icon-check" />
                 </h:panelGrid>
             </h:form>
                       <h:form> 

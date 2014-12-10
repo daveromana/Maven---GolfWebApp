@@ -79,6 +79,9 @@ public class LoginBean implements Serializable {
      */
     @SuppressWarnings
     public void setUserName(final String userName) {
+        if(userName.isEmpty()){
+            throw new IllegalArgumentException("Must Have A User Name");
+        }
         this.userName = userName;
     }
 
@@ -93,6 +96,9 @@ public class LoginBean implements Serializable {
      * @param password
      */
     public void setPassword(final String password) {
+         if(password.isEmpty()){
+            throw new IllegalArgumentException("Must Have A Password");
+        }
         this.password = password;
     }    
 

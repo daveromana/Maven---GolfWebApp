@@ -19,7 +19,7 @@
                 <h:panelGrid columns="4" cellpadding="5">
                     <h:outputLabel value="ID:" style="font-weight:bold" />
                     <p:inputText id="employeeId" value="#{membersBean.id}" />
-                    <p:commandButton value="Find Record To Edit" action="#{membersBean.findMember(membersBean.id)}" icon="ui-icon-check" />
+                    <p:commandButton value="Find Record To Edit" ajax="false" action="#{membersBean.findMember(membersBean.id)}" icon="ui-icon-check" />
                 </h:panelGrid>
                 <h:panelGrid columns="2" cellpadding="5">
                     <p:column>
@@ -78,7 +78,7 @@
                     </p:column>        
                 </h:panelGrid>
                 <br />
-                <p:commandButton value="Update Record" actionListener="#{membersBean.updateMember(membersBean.id)}" id="updateMember" />
+                <p:commandButton value="Update Record" ajax="false" actionListener="#{membersBean.updateMember(membersBean.id)}" id="updateMember" />
 
             </h:form>
             <h:form> 

@@ -23,6 +23,7 @@ public class ImagesView {
       private List<String> jrImagesGallery;
       
     @PostConstruct
+    //-----used to display galleries on pages----///
     public void init() {
         images = new ArrayList<String>();
         for (int i = 1; i <= 4; i++) {

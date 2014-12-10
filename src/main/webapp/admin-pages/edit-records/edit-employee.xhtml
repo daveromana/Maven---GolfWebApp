@@ -4,7 +4,8 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="/template/hillsTemplate.xhtml"
-                xmlns:p="http://primefaces.org/ui">
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:define name="content">
         <div id="title" style="text-align: center;">
@@ -17,8 +18,8 @@
             <h:form>
                 <h:panelGrid columns="4" cellpadding="5">
                     <h:outputLabel value="ID:" style="font-weight:bold" />
-                    <p:inputText id="employeeId" maxlength="3" value="#{employeeBean.id}" />
-                    <p:commandButton value="Find Employee By Id" icon="ui-icon-check" action="#{employeeBean.findEmployee(employeeBean.id)}" />
+                    <p:inputText id="Id" maxlength="3" value="#{employeeBean.id}" />
+                    <p:commandButton value="Find Employee By Id"  icon="ui-icon-check" action="#{employeeBean.findById(employeeBean.id)}" />
                 </h:panelGrid>
                 <div id="space" style="padding-bottom: 50px; "></div>
                 <h:panelGrid columns="2" cellpadding="5">
@@ -26,67 +27,82 @@
                         <p:outputLabel value="Employee ID Number:" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="empid" maxlength="8" value="#{employeeBean.employeeId}"/>
+                        <p:inputText id="empid" value="#{employeeBean.employeeId}">
+                            <f:validateLength minimum="1" />
+                        </p:inputText>
                     </p:column>
                     <p:column>
                         <p:outputLabel value="First Name:" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="fname" maxlength="15" value="#{employeeBean.firstName}"/>
+                        <p:inputText id="fname" maxlength="15" value="#{employeeBean.firstName}">
+                            <f:validateLength minimum="1" />
+                        </p:inputText>
                     </p:column>
                     <p:column>
                         <p:outputLabel value="Last Name:" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="lname" maxlength="25" value="#{employeeBean.lastName}"/>
+                        <p:inputText id="lname" maxlength="25" value="#{employeeBean.lastName}">
+                            <f:validateLength minimum="1" />
+                        </p:inputText>
                     </p:column>
                     <p:column>
                         <p:outputLabel value="Address:" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="address" maxlength="25" value="#{employeeBean.address}"/>
+                        <p:inputText id="address" maxlength="35" value="#{employeeBean.address}">
+                            <f:validateLength minimum="1" />
+                        </p:inputText>
                     </p:column>
                     <p:column>
                         <p:outputLabel value="City:" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="city" maxlength="15" value="#{employeeBean.city}"/>
+                        <p:inputText id="city" maxlength="15" value="#{employeeBean.city}">
+                            <f:validateLength minimum="1" />
+                        </p:inputText>
                     </p:column>
                     <p:column>
                         <p:outputLabel value="State:" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="state" maxlength="2" value="#{employeeBean.state}"/>
+                        <p:inputText id="state" maxlength="2" value="#{employeeBean.state}">
+                            <f:validateLength minimum="1" />
+                        </p:inputText>
                     </p:column>
                     <p:column>
                         <p:outputLabel value="Zip:" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="zip" maxlength="5" value="#{employeeBean.zip}"/>
+                        <p:inputText id="zip" maxlength="5" value="#{employeeBean.zip}">
+                            <f:validateLength minimum="1" />
+                        </p:inputText>
                     </p:column>
                     <p:column>
                         <p:outputLabel value="Date Hired:" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="datehired" maxlength="10" value="#{employeeBean.dateHired}"/>
+                        <p:inputText id="datehired" maxlength="10" value="#{employeeBean.dateHired}">
+                            <f:validateLength minimum="1" />
+                        </p:inputText>
                     </p:column>   
                     <p:column>
                         <p:outputLabel value="Social Security Number:" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="ssn" maxlength="11" value="#{employeeBean.socialSecurity}"/>
-                    </p:column>      
-                </h:panelGrid>
-                <br />
-                <p:commandButton value="Update Record" actionListener="#{employeeBean.updateEmployee(employeeBean.id)}" id="updateEmployee" />
-
-            </h:form>  
-            <h:form> 
-                <p:growl id="recordActions"/>
-                <p:menubar>
-                    <p:menuitem class="adminMenu" value="Employee Records" url="/faces/admin-pages/view-records/employee-data.xhtml" />
-                </p:menubar>
+                        <p:inputText id="ssn" maxlength="11" value="#{employeeBean.socialSecurity}">
+                            <f:validateLength minimum="1" />
+                        </p:inputText>
+                    </p:column>   
+                    </h:panelGrid>
             </h:form>
+            <h:form>
+                <br />
+                <p:commandButton value="Update Record" ajax="false" actionListener="#{employeeBean.updateEmployee(employeeBean.id)}" id="updateEmployee" />
+                
+            </h:form>  
+
         </div>
     </ui:define>
 

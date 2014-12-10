@@ -28,7 +28,7 @@ public class RegistrationBean implements Serializable{
     
     private RegistrationFacade registrationDAO;
     
-    
+    //----allows for members to register for tournaments and saves the record to the database----//
     public String tournamentRegister(){
         Registration rs = new Registration();
         rs.setId(id);

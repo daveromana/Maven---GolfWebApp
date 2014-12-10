@@ -39,14 +39,14 @@ public class RestaurantBean implements Serializable {
      * to return to the same page, return null.
      * @return 
      */
+    //------gets all records from the database of type restaurant-----//
     public String processGetAllRestaurantData() {
         restaurant = restaurantDAO.findAll();
         // preferred way to go to a page
         return "view-records/restaurant-data";
-        // Option to redirect to page
-//        return "admin-pages/golf-shop-data?faces-redirect=true";
+
     }
-    
+    //----------------adds a record to the restuarant database------//
     public String addRestaurantData(){
         Restaurant rs = new Restaurant();
         rs.setId(id);
@@ -57,7 +57,7 @@ public class RestaurantBean implements Serializable {
         restaurant.add(rs);
         return null;
     }
-    
+    //--------------finds a record in the restaurant database----------//
     public String findRestuarantData(int id)throws IllegalArgumentException{
         if(id <= 0){
             throw new IllegalArgumentException("ID Cant Be Less Than 0");
@@ -68,7 +68,7 @@ public class RestaurantBean implements Serializable {
         drinkCharges = rs.getDrinkCharges();
         return "edit-restaurant?faces-redirect=true";
     }
-    
+    //------------------updates a record in the database--------------//
     public String updateRestuarantData(int id)throws IllegalArgumentException{
         if(id <= 0){
             throw new IllegalArgumentException("ID Cant Be Less Than 0");
@@ -78,9 +78,10 @@ public class RestaurantBean implements Serializable {
         rs.setDrinkCharges(drinkCharges);
         rs.setMemberId(memberId);
         restaurantDAO.edit(rs);
-        return "view-records/restaurant-data?faces-redirect=true";
+        this.restaurant = restaurantDAO.findAll();
+        return "/admin-pages/view-records/restaurant-data";
     }
-    
+    //-------------------deletes a record in the database----------------------//
     public String deleteRestuarantData(int id)throws IllegalArgumentException{
         if(id <= 0){
             throw new IllegalArgumentException("ID Cant Be Less Than 0");
@@ -114,8 +115,7 @@ public class RestaurantBean implements Serializable {
         return drinkCharges;
     }
 
-    public void setDrinkCharges(BigDecimal drinkCharges) {
-
+    public void setDrinkCharges(BigDecimal drinkCharges)throws IllegalArgumentException {
         this.drinkCharges = drinkCharges;
     }
 

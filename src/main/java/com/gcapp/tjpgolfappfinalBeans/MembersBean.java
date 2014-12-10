@@ -46,6 +46,7 @@ public class MembersBean implements Serializable{
      * to return to the same page, return null.
      * @return 
      */
+    //----gets all database records of type member -----//
     public String processGetAllMembers() {
         members = membersDAO.findAll();
         // preferred way to go to a page
@@ -53,7 +54,7 @@ public class MembersBean implements Serializable{
         // Option to redirect to page
 //        return "admin-pages/golf-shop-data?faces-redirect=true";
     }
-    
+    //-----adds a new record to the database----//
     public String addMember(){
         Members member = new Members();
         member.setId(id);
@@ -70,7 +71,7 @@ public class MembersBean implements Serializable{
         members.add(member);
         return null;
     }
-    
+    //------deletes a record from the database----//
     public String deleteMemberRecord(int id)throws IllegalArgumentException{
         if(id <= 0){
             throw new IllegalArgumentException("ID Must Be Greater Than 0");
@@ -80,7 +81,7 @@ public class MembersBean implements Serializable{
         membersDAO.remove(mb);
         return null;
     }
-    
+    //------finds a record from the database-----//
     public String findMember(int id)throws IllegalArgumentException{
         if(id <= 0){
             throw new IllegalArgumentException("ID Must Be Greater Than 0");
@@ -97,7 +98,7 @@ public class MembersBean implements Serializable{
         quarterlyMinimum = ms.getQuarterlyMinimum();
         return "edit-member?faces-redirect=true";
     }
-    
+    //-----updates a record of type member in the database------////
     public String updateMember(int id)throws IllegalArgumentException{
         if(id <= 0){
             throw new IllegalArgumentException("ID Must Be Greater Than 0");
@@ -113,7 +114,8 @@ public class MembersBean implements Serializable{
         ms.setMembershipType(membershipType);
         ms.setQuarterlyMinimum(quarterlyMinimum);
         membersDAO.edit(ms);
-        return "view-records/members-data?faces-redirect=true";
+        this.members = membersDAO.findAll();
+        return "/admin-pages/view-records/members-data";
     }
 
 
