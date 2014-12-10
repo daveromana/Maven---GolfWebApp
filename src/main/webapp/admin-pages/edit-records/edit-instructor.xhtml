@@ -16,11 +16,17 @@
             <h:form>
                 <h:panelGrid columns="4" cellpadding="5">
                     <h:outputLabel value="ID:" style="font-weight:bold" />
-                    <p:inputText id="employeeId" maxlength="3" value="#{instructorsBean.id}" />
-                    <p:commandButton value="Find Record" ajax="false" action="#{instructorsBean.findInstructorById(instructorsBean.id)}" icon="ui-icon-check" />
+                    <p:inputText id="instrId" maxlength="3" value="#{instructorsBean.id}" />
+                    <p:commandButton value="Find Record" action="#{instructorsBean.findInstructorById(instructorsBean.id)}" icon="ui-icon-check" />
                 </h:panelGrid>
                 <h2 style="text-align: center;">Edit Record</h2>
                     <h:panelGrid columns="2" cellpadding="5">
+                        <p:column>
+                            <p:outputLabel value="Id:" />
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="insId" maxlength="8" value="#{instructorsBean.id}"/>
+                        </p:column>
                         <p:column>
                             <p:outputLabel value="Instructor Id:" />
                         </p:column>
@@ -53,7 +59,7 @@
                         </p:column>
 
                         <br />
-                        <p:commandButton value="Update Record" ajax="false" actionListener="#{instructorsBean.updateInstructor(instructorsBean.id)}" id="updateInstructor" />
+                        <p:commandButton value="Update Record" actionListener="#{instructorsBean.updateInstructor(instructorsBean.id)}" id="updateInstructor" />
 
                     </h:panelGrid>
             </h:form>  

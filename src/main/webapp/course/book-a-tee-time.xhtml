@@ -19,7 +19,7 @@
                     <p:growl id="msgs" showDetail="true" />
                     <h:panelGrid columns="2" cellpadding="5">
                         <p:outputLabel for="datetime" value="Book Your Tee Time:" />
-                        <p:calendar id="datetime" value="#{teeSheetBean.teeTime}" pattern="MM/dd/yyyy HH:mm:ss" />
+                        <p:calendar id="datetime" value="#{teeSheetBean.teeTime}" pattern="yyyy/MM/dd HH:mm" />
                         <p:column>
                             <p:outputLabel value="Player 1:" />
                         </p:column>
@@ -45,7 +45,7 @@
                             <p:inputText id="player4" maxlength="50" value="#{teeSheetBean.playerFour}"/>
                         </p:column>
                     </h:panelGrid>
-                    <p:commandButton value="Submit Tee Time" update="msgs" actionListener="#{teeSheetBean.addNewTeeTime()}" icon="ui-icon-check" />
+                    <p:commandButton value="Submit Tee Time" update="msgs" action="#{teeSheetBean.addNewTeeTime()}" icon="ui-icon-check" />
                 </h:form>
             </div>    
                 

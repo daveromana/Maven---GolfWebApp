@@ -69,7 +69,6 @@ public class InstructorsBean implements Serializable {
     }
     //-----finds a database record of type instructor----//
     public String findInstructorById(int id)throws IllegalArgumentException{
-
         Instructors is = instructorsDAO.find(id);
         instructorId = is.getInstructorId();
         name = is.getName();
@@ -80,7 +79,6 @@ public class InstructorsBean implements Serializable {
     }
     //----updates an instructor record----//
     public String updateInstructor(int id)throws IllegalArgumentException{
-
           Instructors is = instructorsDAO.find(id);
           is.setInstructorId(instructorId);
           is.setName(name);
