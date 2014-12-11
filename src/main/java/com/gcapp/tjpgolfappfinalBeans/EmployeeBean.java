@@ -22,7 +22,7 @@ import javax.inject.Named;
 @SessionScoped
 public class EmployeeBean implements Serializable {
     private List<Employees> employees;
-    private Integer id;
+    private int id;
     private int employeeId;
     private String firstName;
     private String lastName;
@@ -65,7 +65,7 @@ public class EmployeeBean implements Serializable {
         newEmployees.setDateHired(dateHired);
         employeeDAO.create(newEmployees);
         employees.add(newEmployees);
-        return null;
+        return "/admin-pages/view-records/employee-data";
     }
     // ---- deletes an employee from the database ---//
     public String deleteEmployee(int id)throws IllegalArgumentException{
@@ -99,7 +99,7 @@ public class EmployeeBean implements Serializable {
     }
     
     //---finds a record in the databse ---//
-    public String findById(int id)throws IllegalArgumentException{
+    public String findById()throws IllegalArgumentException{
         if(id <= 0){
             throw new IllegalArgumentException("ID Must Be Greater Than 0");
         }
@@ -113,7 +113,7 @@ public class EmployeeBean implements Serializable {
         zip = emp.getZip();
         socialSecurity = emp.getSocailSecurity();
         dateHired = emp.getDateHired();
-        return "edit-employee";
+        return "edit-employee?faces-redirect=true";
     }
     
     public List<Employees> getEmployees() {
@@ -124,14 +124,14 @@ public class EmployeeBean implements Serializable {
         this.employees = employees;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id)throws IllegalArgumentException {
-        if(id <= 0){
-            throw new IllegalArgumentException("ID Must Be Greater Than 0");
-        }
+    public void setId(int id)throws IllegalArgumentException {
+//        if(id <= 0){
+//            throw new IllegalArgumentException("ID Must Be Greater Than 0");
+//        }
         this.id = id;
     }
 
@@ -140,9 +140,9 @@ public class EmployeeBean implements Serializable {
     }
 
     public void setEmployeeId(int employeeId)throws IllegalArgumentException {
-        if(employeeId <= 0){
-            throw new IllegalArgumentException("ID Must Be Greater Than 0");
-        }
+//        if(employeeId <= 0){
+//            throw new IllegalArgumentException("ID Must Be Greater Than 0");
+//        }
         this.employeeId = employeeId;
     }
 
@@ -151,9 +151,9 @@ public class EmployeeBean implements Serializable {
     }
 
     public void setFirstName(String firstName)throws IllegalArgumentException {
-        if(firstName.isEmpty()){
-            throw new IllegalArgumentException("Please Enter A First Name");
-        }
+//        if(firstName.isEmpty()){
+//            throw new IllegalArgumentException("Please Enter A First Name");
+//        }
         this.firstName = firstName;
     }
 
@@ -162,9 +162,9 @@ public class EmployeeBean implements Serializable {
     }
 
     public void setLastName(String lastName)throws IllegalArgumentException {
-        if(lastName.isEmpty()){
-            throw new IllegalArgumentException("Please Enter A Last Name");
-        }
+//        if(lastName.isEmpty()){
+//            throw new IllegalArgumentException("Please Enter A Last Name");
+//        }
         this.lastName = lastName;
     }
 
@@ -173,9 +173,9 @@ public class EmployeeBean implements Serializable {
     }
 
     public void setAddress(String address)throws IllegalArgumentException {
-        if(address.isEmpty()){
-            throw new IllegalArgumentException("Please Enter An Address");
-        }
+//        if(address.isEmpty()){
+//            throw new IllegalArgumentException("Please Enter An Address");
+//        }
         this.address = address;
     }
 
@@ -184,9 +184,9 @@ public class EmployeeBean implements Serializable {
     }
 
     public void setCity(String city)throws IllegalArgumentException {
-        if(city.isEmpty()){
-            throw new IllegalArgumentException("Please Enter A City");
-        }
+//        if(city.isEmpty()){
+//            throw new IllegalArgumentException("Please Enter A City");
+//        }
         this.city = city;
     }
 
@@ -195,9 +195,9 @@ public class EmployeeBean implements Serializable {
     }
 
     public void setState(String state)throws IllegalArgumentException {
-        if(state.isEmpty()){
-            throw new IllegalArgumentException("Please Enter A State");
-        }
+//        if(state.isEmpty()){
+//            throw new IllegalArgumentException("Please Enter A State");
+//        }
         this.state = state;
     }
 
@@ -206,9 +206,9 @@ public class EmployeeBean implements Serializable {
     }
 
     public void setZip(String zip)throws IllegalArgumentException {
-        if(zip.isEmpty()){
-            throw new IllegalArgumentException("Please Enter A Zip");
-        }
+//        if(zip.isEmpty()){
+//            throw new IllegalArgumentException("Please Enter A Zip");
+//        }
         this.zip = zip;
     }
 
@@ -217,9 +217,9 @@ public class EmployeeBean implements Serializable {
     }
 
     public void setSocialSecurity(String socialSecurity)throws IllegalArgumentException {
-        if(socialSecurity.isEmpty()){
-            throw new IllegalArgumentException("Enter A Valid Socail Security Number");
-        }
+//        if(socialSecurity.isEmpty()){
+//            throw new IllegalArgumentException("Enter A Valid Socail Security Number");
+//        }
         this.socialSecurity = socialSecurity;
     }
 
@@ -228,9 +228,9 @@ public class EmployeeBean implements Serializable {
     }
 
     public void setDateHired(String dateHired)throws IllegalArgumentException {
-        if(dateHired.isEmpty()){
-            throw new IllegalArgumentException("Enter Date Hired");
-        }
+//        if(dateHired.isEmpty()){
+//            throw new IllegalArgumentException("Enter Date Hired");
+//        }
         this.dateHired = dateHired;
     }
 

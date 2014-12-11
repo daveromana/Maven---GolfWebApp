@@ -24,7 +24,7 @@ import javax.inject.Named;
 @SessionScoped
 public class InstructorsBean implements Serializable {
     private List<Instructors> instructors;
-    private Integer id;
+    private int id;
     private int instructorId;
     private String name;
     private BigDecimal rate;
@@ -68,14 +68,14 @@ public class InstructorsBean implements Serializable {
        return null;    
     }
     //-----finds a database record of type instructor----//
-    public String findInstructorById(int id)throws IllegalArgumentException{
+    public String findInstructorById() throws IllegalArgumentException{
         Instructors is = instructorsDAO.find(id);
         instructorId = is.getInstructorId();
         name = is.getName();
         teaching = is.getTeaching();
         availability = is.getAvailability();
         rate = is.getRate();
-        return "edit-instructor?faces-redirect=true";
+        return null;
     }
     //----updates an instructor record----//
     public String updateInstructor(int id)throws IllegalArgumentException{
@@ -108,14 +108,14 @@ public class InstructorsBean implements Serializable {
         this.instructors = instructors;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id)throws IllegalArgumentException {
-        if(id <= 0){
-            throw new IllegalArgumentException("ID Must Be Greater Than 0");
-        }
+    public void setId(int id)throws IllegalArgumentException {
+//        if(id < 0){
+//            throw new IllegalArgumentException("ID Must Be Greater Than 0");
+//        }
         this.id = id;
     }
 
@@ -124,9 +124,9 @@ public class InstructorsBean implements Serializable {
     }
 
     public void setInstructorId(int instructorId)throws IllegalArgumentException {
-        if(instructorId <= 0){
-            throw new IllegalArgumentException("ID Must Be Greater Than 0");
-        }
+//        if(instructorId < 0){
+//            throw new IllegalArgumentException("ID Must Be Greater Than 0");
+//        }
         this.instructorId = instructorId;
     }
 
@@ -135,9 +135,9 @@ public class InstructorsBean implements Serializable {
     }
 
     public void setName(String name)throws IllegalArgumentException {
-        if(name.isEmpty()){
-            throw new IllegalArgumentException("Please Enter A Name");
-        }
+//        if(name.isEmpty()){
+//            throw new IllegalArgumentException("Please Enter A Name");
+//        }
         this.name = name;
     }
 
@@ -154,9 +154,9 @@ public class InstructorsBean implements Serializable {
     }
 
     public void setAvailability(String availability)throws IllegalArgumentException {
-        if(availability.isEmpty()){
-            throw new IllegalArgumentException("Please Enter Availability");
-        }
+//        if(availability.isEmpty()){
+//            throw new IllegalArgumentException("Please Enter Availability");
+//        }
         this.availability = availability;
     }
 
@@ -165,9 +165,9 @@ public class InstructorsBean implements Serializable {
     }
 
     public void setTeaching(String teaching)throws IllegalArgumentException {
-        if(teaching.isEmpty()){
-            throw new IllegalArgumentException("Please Enter Teaching Type");
-        }
+//        if(teaching.isEmpty()){
+//            throw new IllegalArgumentException("Please Enter Teaching Type");
+//        }
         this.teaching = teaching;
     }
 

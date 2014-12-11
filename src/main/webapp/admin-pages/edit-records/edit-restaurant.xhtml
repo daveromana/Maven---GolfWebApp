@@ -4,7 +4,8 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="/template/hillsTemplate.xhtml"
-                xmlns:p="http://primefaces.org/ui">
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:define name="content">
         <div id="title" style="text-align: center;">
@@ -26,35 +27,31 @@
                         <p:outputLabel value="Drink Charges:" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="drinkCharge" maxlength="8" value="#{restuarantBean.drinkCharges}"/>
+                        <p:inputText id="drinkCharge" maxlength="8" value="#{restuarantBean.drinkCharges}">
+                            <f:validateLength minimum="2" />
+                        </p:inputText>
                     </p:column>
                     <p:column>
                         <p:outputLabel value="Food Charges" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="foodCharge" maxlength="8" value="#{restuarantBean.foodCharges}"/>
+                        <p:inputText id="foodCharge" maxlength="8" value="#{restuarantBean.foodCharges}">
+                            <f:validateLength minimum="2" />
+                        </p:inputText>
                     </p:column>
                     <p:column>
                         <p:outputLabel value="Member Charged To" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="memberId" maxlength="8" value="#{restuarantBean.memberId}"/>
+                        <p:inputText id="memberId" maxlength="8" value="#{restuarantBean.memberId}">
+                            <f:validateLength minimum="2" />
+                        </p:inputText>
                     </p:column>
-
                     <br />
                     <p:commandButton value="Update Record" ajax="false" action="#{restuarantBean.updateRestuarantData(restuarantBean.id)}" id="updateRestaurant" />
                 </h:panelGrid>
-
-            </h:form>
-            <h:form> 
-                <p:growl id="recordActions"/>
-                <p:menubar>
-                    <p:menuitem class="adminMenu" value="Restaurant Records" url="/faces/admin-pages/view-records/restaurant-data.xhtml?faces-redirect=true" />
-                </p:menubar>
             </h:form>
         </div>
-
     </ui:define>
-
 </ui:composition>
 

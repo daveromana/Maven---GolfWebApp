@@ -25,7 +25,7 @@ import javax.inject.Named;
 public class MembersBean implements Serializable{
     
     private List<Members> members;
-    private Integer id;
+    private int id;
     private int memberId;
     private String firstName;
     private String lastName;
@@ -82,7 +82,7 @@ public class MembersBean implements Serializable{
         return null;
     }
     //------finds a record from the database-----//
-    public String findMember(int id)throws IllegalArgumentException{
+    public String findMember()throws IllegalArgumentException{
         if(id <= 0){
             throw new IllegalArgumentException("ID Must Be Greater Than 0");
         }
@@ -132,9 +132,9 @@ public class MembersBean implements Serializable{
     }
 
     public void setMemberId(int memberId)throws IllegalArgumentException {
-        if(memberId <= 0){
-            throw new IllegalArgumentException("ID Must Be Greater Than 0");
-        }
+//        if(memberId <= 0){
+//            throw new IllegalArgumentException("ID Must Be Greater Than 0");
+//        }
         this.memberId = memberId;
     }
 
@@ -143,9 +143,9 @@ public class MembersBean implements Serializable{
     }
 
     public void setCity(String city)throws IllegalArgumentException {
-        if(city.isEmpty()){
-             throw new IllegalArgumentException("Please Enter A City");
-        }
+//        if(city.isEmpty()){
+//             throw new IllegalArgumentException("Please Enter A City");
+//        }
         this.city = city;
     }
 
@@ -154,9 +154,9 @@ public class MembersBean implements Serializable{
     }
 
     public void setState(String state)throws IllegalArgumentException {
-        if(state.isEmpty()){
-             throw new IllegalArgumentException("Please Enter A State");
-        }
+//        if(state.isEmpty()){
+//             throw new IllegalArgumentException("Please Enter A State");
+//        }
         this.state = state;
     }
 
@@ -165,20 +165,20 @@ public class MembersBean implements Serializable{
     }
 
     public void setZip(String zip)throws IllegalArgumentException {
-        if(zip.isEmpty()){
-             throw new IllegalArgumentException("Please Enter A Zip");
-        }
+//        if(zip.isEmpty()){
+//             throw new IllegalArgumentException("Please Enter A Zip");
+//        }
         this.zip = zip;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id)throws IllegalArgumentException {
-         if(id <= 0){
-             throw new IllegalArgumentException("Id cant be less than 0");
-        }
+    public void setId(int id)throws IllegalArgumentException {
+//         if(id <= 0){
+//             throw new IllegalArgumentException("Id cant be less than 0");
+//        }
         this.id = id;
     }
     
@@ -187,9 +187,9 @@ public class MembersBean implements Serializable{
     }
 
     public void setFirstName(String firstName)throws IllegalArgumentException {
-        if(firstName.isEmpty()){
-             throw new IllegalArgumentException("Please Enter A First Name");
-        }
+//        if(firstName.isEmpty()){
+//             throw new IllegalArgumentException("Please Enter A First Name");
+//        }
         this.firstName = firstName;
     }
 
@@ -198,9 +198,9 @@ public class MembersBean implements Serializable{
     }
 
     public void setLastName(String lastName)throws IllegalArgumentException {
-         if(lastName.isEmpty()){
-             throw new IllegalArgumentException("Please Enter A Last Name");
-        }
+//         if(lastName.isEmpty()){
+//             throw new IllegalArgumentException("Please Enter A Last Name");
+//        }
         this.lastName = lastName;
     }
 
@@ -209,9 +209,9 @@ public class MembersBean implements Serializable{
     }
 
     public void setAddress(String address)throws IllegalArgumentException {
-         if(address.isEmpty()){
-             throw new IllegalArgumentException("Please Enter An Address");
-        }
+//         if(address.isEmpty()){
+//             throw new IllegalArgumentException("Please Enter An Address");
+//        }
         this.address = address;
     }
 
@@ -220,9 +220,9 @@ public class MembersBean implements Serializable{
     }
 
     public void setMembershipType(String membershipType)throws IllegalArgumentException {
-         if(membershipType.isEmpty()){
-             throw new IllegalArgumentException("Please Enter Membership Type");
-        }
+//         if(membershipType.isEmpty()){
+//             throw new IllegalArgumentException("Please Enter Membership Type");
+//        }
         this.membershipType = membershipType;
     }
 

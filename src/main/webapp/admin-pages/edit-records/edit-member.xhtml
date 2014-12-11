@@ -4,7 +4,8 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="/template/hillsTemplate.xhtml"
-                xmlns:p="http://primefaces.org/ui">
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:define name="content">
         <div id="title" style="text-align: center;">
@@ -18,74 +19,85 @@
             <h:form>
                 <h:panelGrid columns="4" cellpadding="5">
                     <h:outputLabel value="ID:" style="font-weight:bold" />
-                    <p:inputText id="employeeId" value="#{membersBean.id}" />
-                    <p:commandButton value="Find Record To Edit" ajax="false" action="#{membersBean.findMember(membersBean.id)}" icon="ui-icon-check" />
+                    <p:inputText id="membersId" value="#{membersBean.id}" />
+                     <p:commandButton id="findInstrBtn" value="Find Record" action="#{membersBean.findMember()}" ajax="false" icon="ui-icon-check"/>
                 </h:panelGrid>
                 <h:panelGrid columns="2" cellpadding="5">
                     <p:column>
                         <p:outputLabel value="Member Id:" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="memId" maxlength="8" value="#{membersBean.memberId}"/>
+                        <p:inputText id="memId" maxlength="8" value="#{membersBean.memberId}">
+                         <f:validateLength minimum="2" />
+                        </p:inputText>
                     </p:column>
                     <p:column>
                         <p:outputLabel value="First Name:" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="fname" maxlength="10" value="#{membersBean.firstName}"/>
+                        <p:inputText id="fname" maxlength="20" value="#{membersBean.firstName}">
+                            <f:validateLength minimum="2" />
+                        </p:inputText>
                     </p:column>
                     <p:column>
                         <p:outputLabel value="Last Name:" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="lname" maxlength="20" value="#{membersBean.lastName}"/>
+                        <p:inputText id="lname" maxlength="25" value="#{membersBean.lastName}">
+                            <f:validateLength minimum="2" />
+                        </p:inputText>
                     </p:column>
                     <p:column>
                         <p:outputLabel value="Address:" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="address" maxlength="35" value="#{membersBean.address}"/>
+                        <p:inputText id="address" maxlength="35" value="#{membersBean.address}">
+                            <f:validateLength minimum="2" />
+                        </p:inputText>
                     </p:column>
                     <p:column>
                         <p:outputLabel value="City:" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="city" maxlength="25" value="#{membersBean.city}"/>
+                        <p:inputText id="city" maxlength="25" value="#{membersBean.city}">
+                            <f:validateLength minimum="2" />
+                        </p:inputText>
                     </p:column>
                     <p:column>
                         <p:outputLabel value="State:" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="state" maxlength="2" value="#{membersBean.state}"/>
+                        <p:inputText id="state" maxlength="20" value="#{membersBean.state}">
+                            <f:validateLength minimum="2" />
+                        </p:inputText>
                     </p:column>
                     <p:column>
                         <p:outputLabel value="Zip:" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="zip" maxlength="5" value="#{membersBean.zip}"/>
+                        <p:inputText id="zip" maxlength="5" value="#{membersBean.zip}">
+                            <f:validateLength minimum="2" />
+                        </p:inputText>
                     </p:column>
                     <p:column>
                         <p:outputLabel value="Membership Type:" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="membershipType" maxlength="25" value="#{membersBean.membershipType}"/>
+                        <p:inputText id="membershipType" maxlength="25" value="#{membersBean.membershipType}">
+                            <f:validateLength minimum="2" />
+                        </p:inputText>
                     </p:column>    
                     <p:column>
                         <p:outputLabel value="Quarterly Minimum" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="quartMin" maxlength="8" value="#{membersBean.quarterlyMinimum}"/>
+                        <p:inputText id="quartMin" maxlength="8" value="#{membersBean.quarterlyMinimum}">
+                            <f:validateLength minimum="2" />
+                        </p:inputText>
                     </p:column>        
                 </h:panelGrid>
                 <br />
-                <p:commandButton value="Update Record" ajax="false" action="#{membersBean.updateMember(membersBean.id)}" id="updateMember" />
-
-            </h:form>
-            <h:form> 
-                <p:growl id="recordActions"/>
-                <p:menubar>
-                    <p:menuitem class="adminMenu" value="Member  Records" url="/faces/admin-pages/view-records/members-data.xhtml" />
-                </p:menubar>
+                <p:commandButton value="Update Record" action="#{membersBean.updateMember(membersBean.id)}" id="updateMember" />
             </h:form>
         </div>
     </ui:define>

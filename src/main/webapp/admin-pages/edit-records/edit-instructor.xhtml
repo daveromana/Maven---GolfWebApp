@@ -4,7 +4,8 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="/template/hillsTemplate.xhtml"
-                xmlns:p="http://primefaces.org/ui">
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:define name="content">
         <div id="title" style="text-align: center;">
@@ -17,58 +18,56 @@
                 <h:panelGrid columns="4" cellpadding="5">
                     <h:outputLabel value="ID:" style="font-weight:bold" />
                     <p:inputText id="instrId" maxlength="3" value="#{instructorsBean.id}" />
-                    <p:commandButton value="Find Record" action="#{instructorsBean.findInstructorById(instructorsBean.id)}" icon="ui-icon-check" />
+                    <p:commandButton id="findInstrBtn" value="Find Record" action="#{instructorsBean.findInstructorById()}" ajax="false" icon="ui-icon-check"/>
+                       
                 </h:panelGrid>
                 <h2 style="text-align: center;">Edit Record</h2>
                     <h:panelGrid columns="2" cellpadding="5">
                         <p:column>
-                            <p:outputLabel value="Id:" />
-                        </p:column>
-                        <p:column>
-                            <p:inputText id="insId" maxlength="8" value="#{instructorsBean.id}"/>
-                        </p:column>
-                        <p:column>
                             <p:outputLabel value="Instructor Id:" />
                         </p:column>
                         <p:column>
-                            <p:inputText id="instId" maxlength="8" value="#{instructorsBean.instructorId}"/>
+                            <p:inputText id="instId" maxlength="5" value="#{instructorsBean.instructorId}" >
+                                <f:validateLength minimum="2" />
+                            </p:inputText>    
                         </p:column>
                         <p:column>
                             <p:outputLabel value="Instructor Name:" />
                         </p:column>
                         <p:column>
-                            <p:inputText id="instName" maxlength="15" value="#{instructorsBean.name}"/>
+                            <p:inputText id="instName" maxlength="55" value="#{instructorsBean.name}">
+                            <f:validateLength minimum="2" />
+                        </p:inputText>
                         </p:column>
                         <p:column>
                             <p:outputLabel value="Hourly Rate:" />
                         </p:column>
                         <p:column>
-                            <p:inputText id="rate" maxlength="25" value="#{instructorsBean.rate}"/>
+                            <p:inputText id="rate" maxlength="7" value="#{instructorsBean.rate}">
+                            <f:validateLength minimum="2" />
+                        </p:inputText>
                         </p:column>
                         <p:column>
                             <p:outputLabel value="Teachings:" />
                         </p:column>
                         <p:column>
-                            <p:inputText id="teaching" maxlength="30" value="#{instructorsBean.teaching}"/>
+                            <p:inputText id="teaching" maxlength="100" value="#{instructorsBean.teaching}">
+                            <f:validateLength minimum="2" />
+                        </p:inputText>
                         </p:column>
                         <p:column>
                             <p:outputLabel value="Availability:" />
                         </p:column>
                         <p:column>
-                            <p:inputText id="availability" maxlength="8" value="#{instructorsBean.availability}"/>
+                            <p:inputText id="availability" maxlength="10" value="#{instructorsBean.availability}">
+                            <f:validateLength minimum="2" />
+                        </p:inputText>
                         </p:column>
-
                         <br />
-                        <p:commandButton value="Update Record" actionListener="#{instructorsBean.updateInstructor(instructorsBean.id)}" id="updateInstructor" />
+                        <p:commandButton value="Update Record" action="#{instructorsBean.updateInstructor(instructorsBean.id)}" id="updateInstructor" />
 
                     </h:panelGrid>
             </h:form>  
-            <h:form> 
-                <p:growl id="messages"/>
-                <p:menu style="width: 600px; text-align: center; color:#fff;">
-                    <p:menuitem class="adminMenu" value="Instructor Records" action="#{instructorsBean.processGetAllInstructors()}" />
-                </p:menu>
-            </h:form>
         </div>
     </ui:define>
 

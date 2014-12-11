@@ -19,7 +19,8 @@
                 <h:panelGrid columns="4" cellpadding="5">
                     <h:outputLabel value="ID:" style="font-weight:bold" />
                     <p:inputText id="Id" maxlength="3" value="#{employeeBean.id}" />
-                    <p:commandButton value="Find Employee By Id"  icon="ui-icon-check" action="#{employeeBean.findById(employeeBean.id)}" />
+                    <p:commandButton id="findInstrBtn" value="Find Record" action="#{employeeBean.findById()}" ajax="false" icon="ui-icon-check"/>
+                   
                 </h:panelGrid>
                 <div id="space" style="padding-bottom: 50px; "></div>
                 <h:panelGrid columns="2" cellpadding="5">
@@ -27,48 +28,48 @@
                         <p:outputLabel value="Employee ID Number:" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="empid" value="#{employeeBean.employeeId}">
-                            <f:validateLength minimum="1" />
+                        <p:inputText id="empid" maxlength="5" value="#{employeeBean.employeeId}">
+                            <f:validateLength minimum="2" />
                         </p:inputText>
                     </p:column>
                     <p:column>
                         <p:outputLabel value="First Name:" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="fname" maxlength="15" value="#{employeeBean.firstName}">
-                            <f:validateLength minimum="1" />
+                        <p:inputText id="fname" maxlength="20" value="#{employeeBean.firstName}">
+                          <f:validateLength minimum="2" />
                         </p:inputText>
                     </p:column>
                     <p:column>
                         <p:outputLabel value="Last Name:" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="lname" maxlength="25" value="#{employeeBean.lastName}">
-                            <f:validateLength minimum="1" />
+                        <p:inputText id="lname" maxlength="30" value="#{employeeBean.lastName}">
+                             <f:validateLength minimum="3" />
                         </p:inputText>
                     </p:column>
                     <p:column>
                         <p:outputLabel value="Address:" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="address" maxlength="35" value="#{employeeBean.address}">
-                            <f:validateLength minimum="1" />
+                        <p:inputText id="address" maxlength="50" value="#{employeeBean.address}">
+                            <f:validateLength minimum="5" />
                         </p:inputText>
                     </p:column>
                     <p:column>
                         <p:outputLabel value="City:" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="city" maxlength="15" value="#{employeeBean.city}">
-                            <f:validateLength minimum="1" />
+                        <p:inputText id="city" maxlength="50" value="#{employeeBean.city}">
+                            <f:validateLength minimum="3" />
                         </p:inputText>
                     </p:column>
                     <p:column>
                         <p:outputLabel value="State:" />
                     </p:column>
                     <p:column>
-                        <p:inputText id="state" maxlength="2" value="#{employeeBean.state}">
-                            <f:validateLength minimum="1" />
+                        <p:inputText id="state" maxlength="25" value="#{employeeBean.state}">
+                                <f:validateLength minimum="2" />
                         </p:inputText>
                     </p:column>
                     <p:column>
@@ -76,7 +77,7 @@
                     </p:column>
                     <p:column>
                         <p:inputText id="zip" maxlength="5" value="#{employeeBean.zip}">
-                            <f:validateLength minimum="1" />
+                            <f:validateLength minimum="5" />
                         </p:inputText>
                     </p:column>
                     <p:column>
@@ -84,7 +85,7 @@
                     </p:column>
                     <p:column>
                         <p:inputText id="datehired" maxlength="10" value="#{employeeBean.dateHired}">
-                            <f:validateLength minimum="1" />
+                            <f:validateLength minimum="8" />
                         </p:inputText>
                     </p:column>   
                     <p:column>
@@ -92,17 +93,14 @@
                     </p:column>
                     <p:column>
                         <p:inputText id="ssn" maxlength="11" value="#{employeeBean.socialSecurity}">
-                            <f:validateLength minimum="1" />
+                            <f:validateLength minimum="11" />
                         </p:inputText>
                     </p:column>   
                     </h:panelGrid>
-            </h:form>
-            <h:form>
-                <br />
-                <p:commandButton value="Update Record" ajax="false" action="#{employeeBean.updateEmployee(employeeBean.id)}" id="updateEmployee" />
-                
-            </h:form>  
 
+                <br />
+                <p:commandButton value="Update Record" action="#{employeeBean.updateEmployee(employeeBean.id)}" id="updateEmployee" />
+            </h:form>  
         </div>
     </ui:define>
 
