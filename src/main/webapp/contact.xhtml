@@ -10,7 +10,6 @@
         <div id="banner-contact" style="width: 900px;">
             <p:graphicImage width="1200" value="resources/images/banner_1.jpg"/>
         </div>
-
         <div id="title" style="text-align: center;">
             <h1>Contact Us</h1>  
             <p:graphicImage value="resources/images/home_hr.png"/>
@@ -50,7 +49,7 @@
                         </p:column>
                     </h:panelGrid>
                     <br />
-                    <p:commandButton value="Submit" actionListener="#{contactBean.sendEmailNotification()}" />
+                    <p:commandButton value="Submit" action="index?faces-redirect=true" />
                 </h:form>
             </div>    
         </div>

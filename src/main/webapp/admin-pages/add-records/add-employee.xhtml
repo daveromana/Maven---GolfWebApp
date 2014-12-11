@@ -47,7 +47,7 @@
                     </p:column>
                     <p:column>
                         <p:inputText id="address" maxlength="45" value="#{employeeBean.address}">
-                            <f:validateLength minimum="2" />
+                            <f:validateLength minimum="2"  />
                         </p:inputText>
                     </p:column>
                     <p:column>
@@ -94,6 +94,13 @@
                 <br />
                 <p:commandButton value="Add Record" actionListener="#{employeeBean.addEmployee()}" id="addEmployee" />
             </h:form>
+            
+              <h:form> 
+                 <p:growl id="recordActions"/>
+                 <p:menubar>
+                   <p:menuitem class="adminMenu" value="Employee Records" url="/faces/admin-pages/view-records/employee-data.xhtml" />
+                 </p:menubar>
+                 </h:form>
         </div>
     </ui:define>
 </ui:composition>

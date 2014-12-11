@@ -14,7 +14,6 @@ import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import org.eclipse.persistence.jpa.jpql.parser.DateTime;
 
 /**
  *
