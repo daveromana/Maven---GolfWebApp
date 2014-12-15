@@ -9,55 +9,45 @@
         <h:outputStylesheet library="css" name="style.css"/>
     </h:head>
     <h:body>  
-        <!-- start of header -->
-   
-        <!-- end of header -->
-        <!-- start of content -->
         <div id="content">
-           
             <div id="title" style="text-align: center; padding-top: 30px;">
                 <h1>The Hills | Golf &amp; Country Club</h1>
                 <p:graphicImage value="/resources/images/home_hr.png"/>
                 <h2>Golf Shop Tee Sheet</h2>
                 <br />
             </div>    
- 
             <p:dataTable var="items" value="#{teeSheetBean.teeSheet}">
-                        <p:column headerText="Tee Time">
-                            <h:outputText value="#{items.teeTime}" />
-                        </p:column>
-                        <p:column headerText="Player">
-                            <h:outputText value="#{items.playerOne}" />
-                        </p:column>
-                        <p:column headerText="Player">
-                            <h:outputText value="#{items.playerTwo}" />
-                        </p:column>
-                        <p:column headerText="Player">
-                            <h:outputText value="#{items.playerThree}" />
-                        </p:column>
-                         <p:column headerText="Player">
-                            <h:outputText value="#{items.playerFour}" />
-                        </p:column>
-                    </p:dataTable>
+                <p:column headerText="Tee Time">
+                    <h:outputText value="#{items.teeTime}" />
+                </p:column>
+                <p:column headerText="Player">
+                    <h:outputText value="#{items.playerOne}" />
+                </p:column>
+                <p:column headerText="Player">
+                    <h:outputText value="#{items.playerTwo}" />
+                </p:column>
+                <p:column headerText="Player">
+                    <h:outputText value="#{items.playerThree}" />
+                </p:column>
+                <p:column headerText="Player">
+                    <h:outputText value="#{items.playerFour}" />
+                </p:column>
+            </p:dataTable>
             <br />
-           <h:form>
+            <h:form>
                 <p:growl id="messages"/>
                 <p:menu style="width: 200px; text-align: center; color:#fff;">
-                 <p:menuitem value="User Panel" url="/faces/user-pages/user-panel.xhtml" />
+                    <p:menuitem value="User Panel" url="/faces/user-pages/user-panel.xhtml" />
                 </p:menu>
             </h:form>  
         </div>
-        
-        <!-- end of content -->  
-        <!-- start of footer -->
         <div id="footer">
             <ui:insert name="footer" >
                 <ui:include src="/template/footer.xhtml" />
             </ui:insert>
         </div>
-        <!-- end of footer -->
         <br />
-        
+
     </h:body>
 </html>
 

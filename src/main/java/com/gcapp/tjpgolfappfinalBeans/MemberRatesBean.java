@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Used to return membership rates from database records to the view.
  */
 package com.gcapp.tjpgolfappfinalBeans;
 

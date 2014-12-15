@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Saves data to the database for creating a new tee time and returns the tee-sheet to the view in order
+   for employees to view the tee sheet.
  */
 package com.gcapp.tjpgolfappfinalBeans;
 
@@ -32,10 +31,6 @@ public class TeeSheetBean implements Serializable {
            
     @Inject
     private TeesheetFacade teeSheetDAO;
-
-    public List<Teesheet> getTeeSheet() {
-        return teeSheet;
-    }
     
     //-------------allows users to book online tee times and saves the to the database-----------//
     public String addNewTeeTime(){
@@ -51,9 +46,13 @@ public class TeeSheetBean implements Serializable {
         return "index?faces-redirect=true";
     }
     
-       public String processGetTeeTimes() {
+    public String processGetTeeTimes() {
         teeSheet = teeSheetDAO.findAll();
         return "tee-sheet-view";
+    }
+        
+    public List<Teesheet> getTeeSheet() {
+        return teeSheet;
     }
 
     public void setTeeSheet(List<Teesheet> teeSheet) {
@@ -107,8 +106,6 @@ public class TeeSheetBean implements Serializable {
     public void setTeeTime(Date teeTime) {
         this.teeTime = teeTime;
     }
-
-    
 
     public TeesheetFacade getTeeSheetDAO() {
         return teeSheetDAO;

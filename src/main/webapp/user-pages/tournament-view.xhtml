@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui" >
+    <h:head>
+        <title>Employee User: Tournament Registrants</title>
+        <h:outputStylesheet library="css" name="style.css"/>
+    </h:head>
+    <h:body>  
+        <div id="content">
+            <div id="title" style="text-align: center; padding-top: 30px;">
+                <h1>The Hills | Golf &amp; Country Club</h1>
+                <p:graphicImage value="/resources/images/home_hr.png"/>
+                <h2>Golf Shop Tournament Registrants</h2>
+                <br />
+            </div>    
+            <p:dataTable var="item" value="#{registrationBean.processFindPlayers}" >
+                        <p:column headerText="First Name">
+                         <h:outputText value="#{item.firstName}" />
+                        </p:column>
+                        <p:column headerText="Last Name">
+                            <h:outputText value="#{item.lastName}" />
+                        </p:column>
+                        <p:column headerText="Event">
+                            <h:outputText value="#{item.event}" />
+                        </p:column>
+                        <p:column headerText="Member Id">
+                            <h:outputText value="#{item.memberId}" />
+                           
+                        </p:column>
+                    </p:dataTable>
+            <br />
+           <h:form>
+                <p:growl id="messages"/>
+                <p:menu style="width: 400px; text-align: center; color:#fff;">
+                 <p:menuitem value="User Panel" url="/faces/user-pages/user-panel.xhtml" />
+                </p:menu>
+            </h:form>  
+        </div>
+        
+        <!-- end of content -->  
+        <!-- start of footer -->
+        <div id="footer">
+            <ui:insert name="footer" >
+                <ui:include src="/template/footer.xhtml" />
+            </ui:insert>
+        </div>
+        <!-- end of footer -->
+        <br />
+        
+    </h:body>
+</html>
+

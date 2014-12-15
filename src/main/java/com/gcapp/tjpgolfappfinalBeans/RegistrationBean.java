@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This bean takes care of the registration process for tournaments and returns the data to a view 
+   for employees to see who has signed up for which tournaments
  */
 package com.gcapp.tjpgolfappfinalBeans;
 
@@ -10,6 +9,7 @@ import com.gcapp.tjpgolfappfinalService.RegistrationFacade;
 import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -26,6 +26,7 @@ public class RegistrationBean implements Serializable{
     private String event;
     private String memberId;
     
+    @Inject
     private RegistrationFacade registrationDAO;
     
     //----allows for members to register for tournaments and saves the record to the database----//
@@ -39,7 +40,13 @@ public class RegistrationBean implements Serializable{
         registrationDAO.create(rs);
         return "registration-success";
     }
-
+    
+    public String processFindPlayers(){
+        registration = registrationDAO.findAll();
+        return "tournament-view";
+    }
+    
+    
     public Integer getId() {
         return id;
     }
@@ -47,7 +54,6 @@ public class RegistrationBean implements Serializable{
     public void setId(Integer id) {
         this.id = id;
     }
-    
     
 
     public List<Registration> getRegistration() {

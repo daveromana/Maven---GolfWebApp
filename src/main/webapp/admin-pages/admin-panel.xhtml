@@ -4,7 +4,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       template="/template/hillsTemplate.xhtml"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
      <ui:define name="content">
             <div id="title" style="text-align: center;">
@@ -12,7 +13,6 @@
                 <p:graphicImage value="/resources/images/home_hr.png"/>
                 <br />
             </div>    
-              
             <h2 style="text-align: center;">Administrator Panel</h2>
             <div id="recordButtons" style="margin:0 auto; width:50%;">    
             <h:form> 
@@ -25,7 +25,6 @@
                     <p:menuitem class="adminMenu" value="Member Records" action="#{membersBean.processGetAllMembers()}" />
                 </p:menu>
             </h:form>
-             
             </div> 
          </ui:define>
     </ui:composition>
